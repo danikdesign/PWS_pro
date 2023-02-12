@@ -21,7 +21,7 @@ class ClientsController < ApplicationController
                                    :phone,
                                    :purifier_brand,
                                    :purifier_stages,
-                                   :putifier_pump,
+                                   :purifier_pump,
                                    :purifier_tank)
   end
 end
