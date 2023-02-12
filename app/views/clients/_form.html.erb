@@ -1,0 +1,55 @@
+<p class="lead">
+  Complete the form below
+</p>
+<%= form_with model: @client, class: 'row g-3' do |f| %>
+  <div class="col-md-6">
+    <%= f.label :first_name, class: 'form-label' %>
+    <%= f.text_area :first_name, class: 'form-control' %>
+  </div>
+
+  <div class="col-md-6">
+    <%= f.label :last_name, class: 'form-label' %>
+    <%= f.text_area :last_name, class: 'form-control' %>
+  </div>
+
+  <div class="col-12">
+    <%= f.label :address, class: 'form-label' %>
+    <%= f.text_area :address, class: 'form-control' %>
+  </div>
+
+  <div class="col-12">
+    <%= f.label :phone, class: 'form-label' %>
+    <%= f.text_area :phone, class: 'form-control' %>
+  </div>
+
+  <div class="col-md-6">
+    <%= f.label :purifier_brand, class: 'form-label' %>
+    <%= f.text_area :purifier_brand, class: 'form-control' %>
+  </div>
+
+  <div class="col-md-6">
+    <%= f.label :purifier_stages, class: 'form-label' %>
+    <%= f.text_area :purifier_stages, class: 'form-control' %>
+  </div>
+
+  <div class="row mb-6">
+    <div class="offset-sm-2 col-sm-10">
+      <div class="form-check form-switc">
+        <%= f.label :putifier_pump, class: 'form-check-label' do %>
+          <%= f.check_box :putifier_pump, class: 'form-check-input' %>
+          <span>Pump</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <%= f.label :purifier_tank, class: 'form-label' %>
+    <%= f.text_area :purifier_tank, class: 'form-control' %>
+  </div>
+
+
+  <div class="col-12">
+    <%= f.submit 'Add client', class: 'btn btn-primary' %>
+  </div>
+<% end %>
