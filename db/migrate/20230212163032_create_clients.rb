@@ -7,8 +7,8 @@ class CreateClients < ActiveRecord::Migration[7.0]
       t.string :address
       t.string :purifier_brand
       t.integer :purifier_stages
-      t.boolean :putifier_pump
       t.integer :purifier_tank
+      t.boolean :purifier_pump
 
       t.timestamps
     end

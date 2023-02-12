@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_12_191638) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_12_163644) do
   create_table "clients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -18,8 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_12_191638) do
     t.string "address"
     t.string "purifier_brand"
     t.integer "purifier_stages"
-    t.boolean "purifier_pump"
     t.integer "purifier_tank"
+    t.boolean "purifier_pump"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
