@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2023-02-12
+  pressure: 1.5
+  incoming_tds: 1
+  out_tds: 1
+  notes: MyText
+  client: one
+
+two:
+  date: 2023-02-12
+  pressure: 1.5
+  incoming_tds: 1
+  out_tds: 1
+  notes: MyText
+  client: two
