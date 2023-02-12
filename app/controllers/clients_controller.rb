@@ -6,10 +6,14 @@ class ClientsController < ApplicationController
     @client = Client.new client_params
 
     if @client.save
-      redirect_to root_path
+      redirect_to clients_path
     else
       render :new
     end
+  end
+
+  def index
+    @clients = Client.order(created_at: :desc)
   end
 
 
