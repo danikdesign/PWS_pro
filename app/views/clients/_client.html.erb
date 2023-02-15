@@ -1,7 +1,7 @@
 <tr>
   <th scope="row"><%= client.id %></th>
-  <td><%= client.last_name %></td>
-  <td><%= client.first_name %></td>
+  <td><%= link_to client.last_name, client_path(client) %></td>
+  <td><%= link_to client.first_name, client_path(client) %></td>
   <td><%= client.address %></td>
   <td><%= client.phone %></td>
   <td><%= client.purifier_brand %></td>
