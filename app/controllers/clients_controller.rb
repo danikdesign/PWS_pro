@@ -6,6 +6,7 @@ class ClientsController < ApplicationController
     @client = Client.new client_params
 
     if @client.save
+      flash[:success] = 'The client has been added'
       redirect_to clients_path
     else
       render :new, status: :unprocessable_entity
@@ -14,6 +15,10 @@ class ClientsController < ApplicationController
 
   def index
     @clients = Client.order(created_at: :desc)
+  end
+
+  def show
+    @client = Client.find params[:id]
   end
 
 
