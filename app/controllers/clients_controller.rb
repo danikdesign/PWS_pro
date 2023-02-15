@@ -8,7 +8,7 @@ class ClientsController < ApplicationController
     if @client.save
       redirect_to clients_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

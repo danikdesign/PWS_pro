@@ -1,4 +1,6 @@
 <% provide :page_title, 'Add client' %>
 <% menu %>
+
 <h1 class="display-5">Add new client</h1>
+<%= render 'shared/errors', object: @client %>
 <%= render 'form' %>
