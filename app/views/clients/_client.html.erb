@@ -1,9 +1,9 @@
-<tr>
+<%= tag.tr data: { controller: 'table', 'action': 'click->table#getCard', 'table-id-value': client.id } do %>
   <th scope="row"><%= client.id %></th>
-  <td><%= link_to client.last_name, client_path(client) %></td>
-  <td><%= link_to client.first_name, client_path(client) %></td>
+  <td><%= client.last_name %></td>
+  <td><%= client.first_name %></td>
   <td><%= client.address %></td>
   <td><%= client.phone %></td>
   <td><%= client.purifier_brand %></td>
   <td><%= client.created_at %></td>
-</tr>
+<% end %>
