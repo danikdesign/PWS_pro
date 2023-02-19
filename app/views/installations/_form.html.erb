@@ -1,0 +1,42 @@
+<%= turbo_frame_tag @installation do %>
+  <%= form_with model: [@client, @installation] do |f| %>
+    <%= render 'shared/errors', object: @installation %>
+
+    <div class="col-md-6">
+      <%= f.label :date, class: 'form-label' %>
+      <%= f.date :date, class: 'datepicker' %>
+    </div>
+
+    <div class="col-md-2">
+      <%= f.label :pressure, class: 'form-label' %>
+      <%= f.text_field :pressure, class: 'form-control form-control-lg' %>
+    </div>
+
+    <div class="col-md-2">
+      <%= f.label :incoming_tds, class: 'form-label' %>
+      <%= f.text_field :incoming_tds, class: 'form-control form-control-lg' %>
+    </div>
+
+    <div class="col-md-2">
+      <%= f.label :out_tds, class: 'form-label' %>
+      <%= f.text_field :out_tds, class: 'form-control form-control-lg' %>
+    </div>
+
+    <div class="col-md-10">
+      <%= f.label :notes, class: 'form-label' %>
+      <%= f.text_area :notes, class: 'form-control form-control-lg' %>
+    </div>
+
+    <div class="form-check col-md-2">
+      <%= f.label :status, class: 'form-check-label' do %>
+        <%= f.check_box :status, class: 'form-check-input' %>
+      <% end %>
+    </div>
+
+
+    <div class="col-12">
+      <%= f.submit 'Add installation', class: 'btn btn-primary' %>
+    </div>
+
+  <% end %>
+<% end %>
