@@ -1,10 +1,10 @@
 <%= turbo_frame_tag @installation do %>
-  <%= form_with model: [@client, @installation] do |f| %>
+  <%= form_with model: [@client, @installation], class: 'row my-3' do |f| %>
     <%= render 'shared/errors', object: @installation %>
 
     <div class="col-md-6">
       <%= f.label :date, class: 'form-label' %>
-      <%= f.date :date, class: 'datepicker' %>
+      <%= f.date_field :date, class: 'form-control form-control-lg' %>
     </div>
 
     <div class="col-md-2">
@@ -22,19 +22,19 @@
       <%= f.text_field :out_tds, class: 'form-control form-control-lg' %>
     </div>
 
-    <div class="col-md-10">
+    <div class="col-md-12">
       <%= f.label :notes, class: 'form-label' %>
       <%= f.text_area :notes, class: 'form-control form-control-lg' %>
     </div>
 
-    <div class="form-check col-md-2">
+    <div>
       <%= f.label :status, class: 'form-check-label' do %>
         <%= f.check_box :status, class: 'form-check-input' %>
+        <span>Completed</span>
       <% end %>
     </div>
 
-
-    <div class="col-12">
+    <div class="col-12 my-3">
       <%= f.submit 'Add installation', class: 'btn btn-primary' %>
     </div>
 
