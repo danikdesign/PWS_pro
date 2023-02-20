@@ -1,9 +1,46 @@
-<%= tag.tr data: { controller: 'table', 'action': 'click->table#getCard', 'table-id-value': client.id } do %>
-  <th scope="row"><%= client.id %></th>
-  <td><%= client.last_name %></td>
-  <td><%= client.first_name %></td>
-  <td><%= client.address %></td>
-  <td><%= client.phone %></td>
-  <td><%= client.purifier_brand %></td>
-  <td><%= client.created_at %></td>
-<% end %>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="display-6"><%= client.last_name %> <%= client.first_name %></h5>
+        <h4>
+          <small class="text-muted">Purifier:</small>
+          <%= client.purifier_brand %>
+        </h4>
+
+        <h4>
+          <small class="text-muted">Install date:</small>
+          <% if client.installations.present? %>
+            <time datetime="<%= client.installations.last.date %>">
+              <%= client.installations.last.date %>
+            </time>
+          <% else %>
+            No information available
+          <% end %>
+        </h4>
+
+        <h4>
+          <small class="text-muted">Next service date:</small>
+          -------
+        </h4>
+        <h4>
+          <small class="text-muted">Phone:</small>
+          <%= client.phone %>
+        </h4>
+        <h4>
+          <small class="text-muted">Address:</small>
+          <%= client.address %>
+        </h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-8">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="display-6">Last services:</h5>
+        <a href="#" class="btn btn-primary">All service history</a>
+      </div>
+    </div>
+  </div>
+</div>
