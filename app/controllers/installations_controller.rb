@@ -26,7 +26,12 @@ class InstallationsController < ApplicationController
   private
 
   def installation_create_params
-    params.require(:installation).permit(:date, :pressure, :incoming_tds, :out_tds, :notes, :status)
+    params.require(:installation).permit(:date,
+                                         :pressure,
+                                         :incoming_tds,
+                                         :out_tds,
+                                         :notes,
+                                         :status)
   end
 
   def set_client
