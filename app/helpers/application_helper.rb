@@ -10,4 +10,8 @@ module ApplicationHelper
       base_title
     end
   end
+
+  def prepend_flash
+    turbo_stream.prepend 'flashes', partial: 'shared/flashes'
+  end
 end

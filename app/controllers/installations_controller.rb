@@ -7,9 +7,19 @@ class InstallationsController < ApplicationController
     @installation = @client.installations.build installation_create_params
 
     if @installation.save
-      redirect_to clients_path
+      respond_to do |format|
+        format.html do
+          flash[:success] = "Water purifier has been added"
+          redirect_to clients_path
+        end
+
+        format.turbo_stream do
+          flash.now[:success] = "Water purifier has been added"
+        end
+      end
+
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
