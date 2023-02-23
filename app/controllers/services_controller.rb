@@ -16,7 +16,7 @@ class ServicesController < ApplicationController
         end
 
         format.turbo_stream do
-          flash.now[:success] = "Water purifier has been added"
+          flash.now[:success] = "New service has been added"
         end
       end
 
