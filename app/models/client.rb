@@ -1,6 +1,6 @@
 class Client < ApplicationRecord
-  has_many :installations
-  has_many :services
+  has_many :installations, dependent: :destroy
+  has_many :services, dependent: :destroy
 
   validates :first_name, presence: true, length: { minimum: 2 }
   validates :last_name, presence: true, length: { minimum: 2 }
