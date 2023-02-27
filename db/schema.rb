@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_27_103104) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_18_154018) do
   create_table "clients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -49,21 +49,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_103104) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "status"
+    t.date "next_date"
     t.index ["client_id"], name: "index_services_on_client_id"
-  end
-
-  create_table "tickets", force: :cascade do |t|
-    t.datetime "datetime"
-    t.integer "installation_id", null: false
-    t.integer "service_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["installation_id"], name: "index_tickets_on_installation_id"
-    t.index ["service_id"], name: "index_tickets_on_service_id"
   end
 
   add_foreign_key "installations", "clients"
   add_foreign_key "services", "clients"
-  add_foreign_key "tickets", "installations"
-  add_foreign_key "tickets", "services"
 end
