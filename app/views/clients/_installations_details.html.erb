@@ -1,30 +1,32 @@
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">Date</th>
-    <th scope="col">Incoming pressure</th>
-    <th scope="col">Input TDS</th>
-    <th scope="col">Output TDS</th>
-    <th scope="col">Status</th>
-    <th scope="col">Notes</th>
-  </tr>
-  </thead>
-  <tbody>
-    <% if @client.installations.present? %>
-      <% @client.installations.each do |installation| %>
-        <tr>
-          <th scope="row"><%= installation.date %></th>
-          <td><%= installation.pressure %></td>
-          <td><%= installation.incoming_tds %></td>
-          <td><%= installation.out_tds %></td>
-          <% if installation.status == true %>
-            <td class="text-success">Completed</td>
-          <% else %>
-            <td class="text-success">Not completed</td>
-          <% end %>
-          <td><%= installation.notes %></td>
-        </tr>
+<div class="table-responsive-md">
+  <table class="table">
+    <thead class="table-light">
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Incoming pressure</th>
+      <th scope="col">Input TDS</th>
+      <th scope="col">Output TDS</th>
+      <th scope="col">Status</th>
+      <th scope="col">Notes</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% if @client.installations.present? %>
+        <% @client.installations.each do |installation| %>
+          <tr>
+            <th scope="row"><%= installation.date %></th>
+            <td><%= installation.pressure %></td>
+            <td><%= installation.incoming_tds %></td>
+            <td><%= installation.out_tds %></td>
+            <% if installation.status == true %>
+              <td class="text-success">Completed</td>
+            <% else %>
+              <td class="text-danger">Not completed</td>
+            <% end %>
+            <td><%= installation.notes %></td>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
