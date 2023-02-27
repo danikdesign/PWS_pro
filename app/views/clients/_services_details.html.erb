@@ -1,0 +1,32 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Date</th>
+    <th scope="col">Replaced elements</th>
+    <th scope="col">Incoming pressure</th>
+    <th scope="col">Input TDS</th>
+    <th scope="col">Output TDS before service</th>
+    <th scope="col">Output TDS after service</th>
+    <th scope="col">Status</th>
+    <th scope="col">Notes</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @client.services.each do |service| %>
+      <tr>
+        <th scope="row"><%= service.date %></th>
+        <td><%= service.replaced %></td>
+        <td><%= service.pressure %></td>
+        <td><%= service.incoming_tds %></td>
+        <td><%= service.out_tds_before %></td>
+        <td><%= service.out_tds_after %></td>
+        <% if service.status == true %>
+          <td class="text-success">Completed</td>
+        <% else %>
+          <td class="text-success">Not completed</td>
+        <% end %>
+        <td><%= service.notes %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
