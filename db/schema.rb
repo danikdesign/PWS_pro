@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_18_154018) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_27_103104) do
   create_table "clients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -44,7 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_18_154018) do
     t.integer "incoming_tds"
     t.integer "out_tds_before"
     t.integer "out_tds_after"
-    t.date "next_date"
     t.integer "client_id", null: false
     t.text "notes"
     t.datetime "created_at", null: false
