@@ -17,6 +17,7 @@ class InstallationsController < ApplicationController
           flash.now[:success] = "Water purifier has been added"
         end
       end
+      ServiceCreator.new(@client).call(@installation.date)
 
     else
       render :new, status: :unprocessable_entity
