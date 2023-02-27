@@ -1,6 +1,6 @@
 class Installation < ApplicationRecord
+  include Ticketable
   belongs_to :client
-  has_one :ticket
 
   validates :date, presence: true
   validates :pressure, presence: true
