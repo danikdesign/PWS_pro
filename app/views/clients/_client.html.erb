@@ -1,7 +1,7 @@
 <%= turbo_frame_tag client do %>
   <div class="row mb-3">
-    <div class="col-sm-4">
-      <div class="card">
+    <div class="col-sm-4 mb-3">
+      <div class="card md-3">
         <div class="card-body">
           <h5 class="display-6"><%= client.last_name %> <%= client.first_name %></h5>
           <h4>
@@ -22,7 +22,11 @@
 
           <h4>
             <small class="text-muted">Next service date:</small>
-            -------
+            <% if client.services.present? %>
+              <%= client.services.last.date %>
+            <% else %>
+              Service is not yet scheduled
+            <% end %>
           </h4>
           <h4>
             <small class="text-muted">Phone:</small>
@@ -42,17 +46,22 @@
         <div class="card-body">
           <% if client.installations.present? %>
             <h5 class="display-6">Installation details:</h5>
-            <%= render 'installations_details' %>
+            <%= render 'clients/installations_details' %>
           <% else %>
             <h5 class="text-muted mb-0">No completed or planned installations yet...</h5>
           <% end %>
         </div>
       </div>
+    </div>
+  </div>
 
+  <div class="row mb-3">
+    <div class="col">
       <div class="card">
         <div class="card-body">
           <% if client.services.present? %>
             <h6 class="display-6">Last services:</h6>
+            <%= render 'clients/services_details' %>
           <% else %>
             <h5 class="text-muted mb-0">No service performed or scheduled yet...</h5>
           <% end %>
