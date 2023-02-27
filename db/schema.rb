@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_18_154018) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_27_164218) do
   create_table "clients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -49,8 +49,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_18_154018) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "status"
-    t.date "next_date"
     t.index ["client_id"], name: "index_services_on_client_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.datetime "datetime"
+    t.text "notes"
+    t.string "ticketable_type", null: false
+    t.integer "ticketable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ticketable_type", "ticketable_id"], name: "index_tickets_on_ticketable"
   end
 
   add_foreign_key "installations", "clients"
