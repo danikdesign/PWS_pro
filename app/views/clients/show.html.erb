@@ -2,8 +2,6 @@
 <% menu %>
 
 <%= link_to 'Back', clients_path, class: 'btn btn-outline-secondary mb-3' %>
-
-<%= render @client %>
-
 <%= render 'installations/add_installation' %>
 <%= render 'services/add_service' %>
+<%= render @client %>
