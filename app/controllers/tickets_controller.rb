@@ -2,8 +2,8 @@
 
 class TicketsController < ApplicationController
 
-  before_action :set_ticketable!
-  before_action :set_client
+  before_action :set_ticketable!, except: %i[index show]
+  before_action :set_client, except: %i[index show]
 
   def new
     @ticket = @ticketable.tickets.build
@@ -25,6 +25,10 @@ class TicketsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def index
+    @tickets = Ticket.order datetime: :asc
   end
 
   private
