@@ -21,7 +21,14 @@
             <% if installation.status == true %>
               <td class="text-success">Completed</td>
             <% else %>
-              <td class="text-danger">Not completed</td>
+              <td class="text-danger">
+                Not completed
+                <% if installation.tickets.present? %>
+                  Ticket Created
+                <% else %>
+                  <%= link_to 'Add ticket', new_installation_ticket_path(installation), class: 'btn btn-danger' %>
+                <% end %>
+              </td>
             <% end %>
             <td><%= installation.notes %></td>
           </tr>
