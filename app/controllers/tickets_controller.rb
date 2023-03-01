@@ -29,6 +29,7 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = Ticket.order datetime: :asc
+    @tickets = @tickets.decorate
   end
 
   private
