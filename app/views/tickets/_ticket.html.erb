@@ -1,0 +1,23 @@
+<div class="col-lg-3 mb-3">
+  <div class="card">
+    <div class="card-body">
+
+      <h5 class="card-title text-center">
+        <%= ticket.ticketable_type %>
+      </h5>
+
+      <h6 class="card-subtitle mb-2 text-muted"><%= ticket.datetime %></h6>
+
+      <p class="card-text">
+        <%= ticket.ticketable.client.first_name %>
+        <%= ticket.ticketable.client.last_name %>
+      </p>
+      <p class="card-text">
+        <%= ticket.ticketable.client.address %>
+      </p>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <a href="#" class="btn btn-danger">Close ticket</a>
+      </div>
+    </div>
+  </div>
+</div>
