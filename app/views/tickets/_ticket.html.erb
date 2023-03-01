@@ -1,23 +1,57 @@
 <div class="col-lg-3 mb-3">
   <div class="card">
-    <div class="card-body">
-
+    <div class="card-header">
       <h5 class="card-title text-center">
         <%= ticket.ticketable_type %>
       </h5>
+      <h6 class="card-subtitle mb-2 text-danger text-center">
+        Datetime: <%= ticket.formatted_datetime %>
+      </h6>
+    </div>
 
-      <h6 class="card-subtitle mb-2 text-muted"><%= ticket.datetime %></h6>
+    <div class="card-body">
 
-      <p class="card-text">
-        <%= ticket.ticketable.client.first_name %>
-        <%= ticket.ticketable.client.last_name %>
-      </p>
-      <p class="card-text">
-        <%= ticket.ticketable.client.address %>
-      </p>
-      <div class="d-grid gap-2 col-6 mx-auto">
-        <a href="#" class="btn btn-danger">Close ticket</a>
-      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <p class="card-text">
+            Client: <strong><%= ticket.client_name %></strong>
+          </p>
+          <p class="card-text">
+            Address: <strong><%= ticket.ticketable.client.address %></strong>
+          </p>
+          <p class="card-text">
+            Phone: <strong><%= ticket.ticketable.client.phone %></strong>
+          </p>
+        </li>
+        <% if ticket.ticketable_type == "Installation" %>
+          <li class="list-group-item">
+            <p class="card-text text-center">
+            Purifier for installation:
+            </p>
+          </li>
+          <li class="list-group-item">
+            <p class="card-text">
+              <strong><%= ticket.ticketable.client.purifier_brand %></strong>
+            </p>
+          </li>
+        <% else %>
+          <li class="list-group-item">
+            <p class="card-text text-center">
+            Replacement parts:
+            </p>
+          </li>
+          <li class="list-group-item">
+            <p class="card-text">
+              <strong><%= ticket.ticketable.replaced %></strong>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <a href="#" class="btn btn-success">Close ticket</a>
+        </div>
+
     </div>
   </div>
 </div>
