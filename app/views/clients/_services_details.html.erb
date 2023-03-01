@@ -24,7 +24,14 @@
           <% if service.status == true %>
             <td class="text-success">Completed</td>
           <% else %>
-            <td class="text-danger">Not completed</td>
+            <td class="text-danger">
+              Not completed
+              <% if service.tickets.present? %>
+                Ticket Created
+              <% else %>
+                <%= link_to 'Add ticket', new_service_ticket_path(service), class: 'btn btn-danger' %>
+              <% end %>
+            </td>
           <% end %>
           <td><%= service.notes %></td>
         </tr>
