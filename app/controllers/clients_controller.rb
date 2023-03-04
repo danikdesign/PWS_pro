@@ -15,6 +15,7 @@ class ClientsController < ApplicationController
 
   def index
     @clients = Client.order(created_at: :desc)
+    @clients = @clients.decorate
   end
 
   def show
