@@ -1,12 +1,12 @@
 <table class="table table-striped table-hover">
   <thead>
   <tr>
-    <th scope="col">#</th>
-    <th scope="col">Name</th>
-    <th scope="col">Address</th>
-    <th scope="col">Phone</th>
-    <th scope="col">Purifier model</th>
-    <th scope="col">Created at</th>
+    <th scope="col"><%= sort_link @q, :id, default_order: :desc, class: 'text-reset' %></th>
+    <th scope="col"><%= sort_link @q, :first_name, 'Name', class: 'text-reset' %></th>
+    <th scope="col"><%= sort_link @q, :address, 'Address', class: 'text-reset' %></th>
+    <th scope="col"><%= sort_link @q, :phone, 'Phone', class: 'text-reset' %></th>
+    <th scope="col"><%= sort_link @q, :purifier_brand, 'Purifier model', class: 'text-reset' %></th>
+    <th scope="col"><%= sort_link @q, :created_at, 'Created at', class: 'text-reset' %></th>
     <th scope="col">Following service</th>
   </tr>
   </thead>

@@ -14,7 +14,8 @@ class ClientsController < ApplicationController
   end
 
   def index
-    @clients = Client.order(created_at: :desc)
+    @q = Client.ransack params[:q]
+    @clients = @q.result distinct: true
     @clients = @clients.decorate
   end
 
