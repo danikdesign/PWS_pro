@@ -15,4 +15,8 @@ class Client < ApplicationRecord
      "purifier_brand",
      "created_at"]
   end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["installations", "services"]
+  end
 end
