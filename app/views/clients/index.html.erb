@@ -1,6 +1,10 @@
 <% provide :page_title, 'Clients' %>
 <% menu %>
 
-<h1 class="display-5">Clients list</h1>
+<h1 class="display-5"><%= link_to 'Clients list', clients_path, class: 'text-reset text-decoration-none' %></h1>
+
+<div class="row-cols-3 mb-3">
+  <%= render 'clients_search' %>
+</div>
 
 <%= render 'clients_list' %>

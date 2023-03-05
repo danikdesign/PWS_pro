@@ -1,0 +1,8 @@
+<%= search_form_for @q, class: 'd-flex' do |f| %>
+  <%= f.search_field :first_name_or_phone_cont,
+                     class: 'form-control me-2',
+                     type: 'search',
+                     placeholder: 'Enter first name or phone' %>
+
+  <%= f.submit 'Search', class: 'btn btn-outline-success' %>
+<% end %>
