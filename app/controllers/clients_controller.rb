@@ -1,9 +1,15 @@
 class ClientsController < ApplicationController
   def new
     @client = Client.new
+    @purifier_brands = PurifierBrand.all
+    @purifier_stages = PurifierStage.all
+    @purifier_tanks = PurifierTank.all
   end
   def create
     @client = Client.new client_params
+    @purifier_brands = PurifierBrand.all
+    @purifier_stages = PurifierStage.all
+    @purifier_tanks = PurifierTank.all
 
     if @client.save
       flash[:success] = 'The client has been added'
