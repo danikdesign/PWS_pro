@@ -1,0 +1,2 @@
+class PurifierBrand < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class PurifierPart < ApplicationRecord
+end

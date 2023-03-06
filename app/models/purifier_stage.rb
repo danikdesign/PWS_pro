@@ -1,0 +1,2 @@
+class PurifierStage < ApplicationRecord
+end

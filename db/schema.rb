@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_27_164218) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_182602) do
   create_table "clients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -35,6 +35,30 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_164218) do
     t.datetime "updated_at", null: false
     t.boolean "status"
     t.index ["client_id"], name: "index_installations_on_client_id"
+  end
+
+  create_table "purifier_brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "purifier_parts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "purifier_stages", force: :cascade do |t|
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "purifier_tanks", force: :cascade do |t|
+    t.integer "capacity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "services", force: :cascade do |t|
