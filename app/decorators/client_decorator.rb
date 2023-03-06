@@ -11,5 +11,13 @@ class ClientDecorator < ApplicationDecorator
     "#{first_name} #{last_name}"
   end
 
+  def purifier
+    if purifier_pump
+      "#{purifier_brand} RO#{purifier_stages}P"
+    else
+      "#{purifier_brand} RO#{purifier_stages}"
+    end
+  end
+
 end
 
