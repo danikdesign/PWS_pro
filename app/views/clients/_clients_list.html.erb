@@ -6,7 +6,7 @@
     <th scope="col"><%= sort_link @q, :address, 'Address', class: 'text-reset' %></th>
     <th scope="col"><%= sort_link @q, :phone, 'Phone', class: 'text-reset' %></th>
     <th scope="col"><%= sort_link @q, :purifier_brand, 'Purifier model', class: 'text-reset' %></th>
-    <th scope="col"><%= sort_link @q, :created_at, 'Created at', class: 'text-reset' %></th>
+    <th scope="col"><%= sort_link @q, :installations_date, 'Installation date', class: 'text-reset' %></th>
     <th scope="col"><%= sort_link @q, :services_date, 'Following service', class: 'text-reset' %></th>
   </tr>
   </thead>
@@ -20,12 +20,19 @@
       <td><%= client.address %></td>
       <td><%= client.phone %></td>
       <td><%= client.purifier_brand %></td>
-      <td><%= client.formatted_created_at %></td>
+
+      <% if client.installations.present? %>
+        <td><%= client.installations.last.date %></td>
+      <% else %>
+        <td>No installations</td>
+      <% end %>
+
       <% if client.services.present? %>
         <td><%= client.services.last.date %></td>
       <% else %>
         <td>No service</td>
       <% end %>
+
     <% end %>
   <% end %>
   </tbody>
