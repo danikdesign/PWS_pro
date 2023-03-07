@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   end
 
   resources :services, only: %i[new create edit update] do
-    resources :tickets, only: %i[new create edit update]
+    resources :tickets, only: %i[new create edit update destroy]
   end
 
   resources :installations, only: %i[new create edit update] do
-    resources :tickets, only: %i[new create edit update]
+    resources :tickets, only: %i[new create edit update destroy]
   end
 
   resources :tickets, only: %i[index show]
