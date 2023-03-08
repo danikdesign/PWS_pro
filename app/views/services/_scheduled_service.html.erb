@@ -1,0 +1,37 @@
+<%= turbo_frame_tag service do %> 
+<div class="table-responsive-md">
+  <table class="table">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Parts for replace</th>
+        <th scope="col">Status</th>
+        <th scope="col">Notes</th>
+        <th scope="col">Ticket datetime</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><%= service.date %></th>
+        <td><%= render service.purifier_parts %></td>
+        <% if service.status == true %>
+          <td class="text-success">Completed</td>
+        <% else %>
+          <td class="text-danger">
+            Not completed
+          </td>
+        <% end %>
+        <td><%= service.notes %></td>
+        <td>
+          <% if service.tickets.present? %>
+            <%= service.tickets.last.datetime %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<%= link_to 'Edit', edit_client_service_path(service), class: 'btn btn-outline-danger mb-3' %>
+<% end %>
+
+
