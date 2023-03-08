@@ -1,0 +1,4 @@
+<%= turbo_frame_tag 'new_ticket' do %>
+  <%= link_to 'Add ticket', new_service_ticket_path(@client.services.last), 
+                          class: 'btn btn-danger mb-3' %>
+<% end %>
