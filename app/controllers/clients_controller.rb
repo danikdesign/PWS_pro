@@ -1,5 +1,4 @@
 class ClientsController < ApplicationController
-  before_action :purifier_specifications, only: %i[new create]
 
   def new
     @client = Client.new
@@ -41,12 +40,6 @@ class ClientsController < ApplicationController
                                    :purifier_stages,
                                    :purifier_tank,
                                    :purifier_pump)
-  end
-
-  def purifier_specifications
-    @purifier_brands = PurifierBrand.all
-    @purifier_stages = PurifierStage.all
-    @purifier_tanks = PurifierTank.all
   end
 
 end

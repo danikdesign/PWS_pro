@@ -26,18 +26,18 @@
 
   <div class="col-md-6">
     <%= f.label :purifier_brand, class: 'form-label' %>
-    <%= f.select :purifier_brand, @purifier_brands.map { |b| b.title}, {}, class: 'form-select form-select-lg' %>
+    <%= f.select :purifier_brand, PurifierBrand.pluck(:title), {}, class: 'form-select form-select-lg' %>
   </div>
 
   <div class="col-md-2">
     <%= f.label :purifier_stages, class: 'form-label' %>
-    <%= f.select :purifier_stages, @purifier_stages.map { |s| s.number}, {}, class: 'form-control form-control-lg' %>
+    <%= f.select :purifier_stages, PurifierStage.pluck(:number), {}, class: 'form-control form-control-lg' %>
   </div>
 
 
   <div class="col-md-2">
     <%= f.label :purifier_tank, class: 'form-label' %>
-    <%= f.select :purifier_tank, @purifier_tanks.map { |t| t.capacity}, {}, class: 'form-control form-control-lg' %>
+    <%= f.select :purifier_tank, PurifierTank.pluck(:capacity), {}, class: 'form-control form-control-lg' %>
   </div>
 
   <div class="col-md-2">
