@@ -3,7 +3,7 @@
 class ServicesController < ApplicationController
   before_action :set_client!
   before_action :set_service!, only: %i[edit update destroy]
-  before_action :purifier_parts, only: %i[new create edit update]
+  before_action :fetch_parts, only: %i[new create edit update]
 
   def new
     @service = @client.services.build
@@ -34,17 +34,7 @@ class ServicesController < ApplicationController
 
   def update
       if @service.update service_update_params
-        respond_to do |format|
-          format.html do
-            flash[:success] = "The service has been updated"
-            redirect_to client_path(@client)
-          end
-  
-          format.turbo_stream do
-            flash.now[:success] = "The service has been updated"
-          end
-        end
-
+        redirect_to client_path(@client)
       else
         render :edit, status: :unprocessable_entity
       end
@@ -56,34 +46,36 @@ class ServicesController < ApplicationController
 
   def service_create_params
     params.require(:service).permit(:date,
-                                    :replaced,
                                     :pressure,
-                                    :incoming_tds,
+                                    :in_tds,
                                     :out_tds_before,
                                     :out_tds_after,
                                     :notes,
-                                    :status)
+                                    :status,
+                                    purifier_part_ids: [])
   end
 
   def service_update_params
     params.require(:service).permit(:date,
-                                    :replaced,
                                     :pressure,
-                                    :incoming_tds,
+                                    :in_tds,
                                     :out_tds_before,
                                     :out_tds_after,
-                                    :notes)
+                                    :notes,
+                                    :status,
+                                    purifier_part_ids: [])
   end
 
   def set_client!
     @client = Client.find params[:client_id]
+    @client.decorate
   end
 
   def set_service!  
     @service = @client.services.find params[:id]
   end
 
-  def purifier_parts 
+  def fetch_parts 
     @purifier_parts = PurifierPart.all
   end
 end
