@@ -1,11 +1,12 @@
 class Service < ApplicationRecord
   include Ticketable
   belongs_to :client
+  has_many :service_purifier_parts, dependent: :destroy
+  has_many :purifier_parts, through: :service_purifier_parts
 
   validates :date, presence: true
-  validates :replaced, presence: true
   validates :pressure, presence: true
-  validates :incoming_tds, presence: true
+  validates :in_tds, presence: true
   validates :out_tds_before, presence: true
   validates :out_tds_after, presence: true
 

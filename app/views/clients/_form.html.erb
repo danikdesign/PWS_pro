@@ -26,7 +26,7 @@
 
   <div class="col-md-6">
     <%= f.label :purifier_brand, class: 'form-label' %>
-    <%= f.select :purifier_brand, @purifier_brands.map { |b| b.name}, {}, class: 'form-select form-select-lg' %>
+    <%= f.select :purifier_brand, @purifier_brands.map { |b| b.title}, {}, class: 'form-select form-select-lg' %>
   </div>
 
   <div class="col-md-2">
