@@ -3,23 +3,23 @@
     <thead class="table-light">
     <tr>
       <th scope="col">Date</th>
-      <th scope="col">Replacement parts</th>
+      <th scope="col">Replaced parts</th>
       <th scope="col">Incoming pressure</th>
       <th scope="col">Input TDS</th>
-      <th scope="col">Output TDS before service</th>
-      <th scope="col">Output TDS after service</th>
+      <th scope="col">Output TDS before</th>
+      <th scope="col">Output TDS after</th>
       <th scope="col">Status</th>
       <th scope="col">Notes</th>
       <th scope="col">Options</th>
     </tr>
     </thead>
     <tbody>
-      <% @client.services.each do |service| %>
+      <% @client.services[0..-2].each do |service| %>
         <tr>
           <th scope="row"><%= service.date %></th>
-          <td><%= service.replaced %></td>
+          <td><%= render service.purifier_parts %></td>
           <td><%= service.pressure %></td>
-          <td><%= service.incoming_tds %></td>
+          <td><%= service.in_tds %></td>
           <td><%= service.out_tds_before %></td>
           <td><%= service.out_tds_after %></td>
           <% if service.status == true %>
@@ -27,15 +27,9 @@
           <% else %>
             <td class="text-danger">
               Not completed
-              <% if service.tickets.present? %>
-                Ticket Created
-              <% else %>
-                <%= link_to 'Add ticket', new_service_ticket_path(service), class: 'btn btn-danger' %>
-              <% end %>
             </td>
           <% end %>
           <td><%= service.notes %></td>
-          <td><%= link_to 'Edit', edit_client_service_path(@client, service), class: 'btn btn-outline-danger' %></td>
         </tr>
       <% end %>
     </tbody>
