@@ -4,4 +4,26 @@
 <%= link_to 'Back', clients_path, class: 'btn btn-outline-secondary mb-3' %>
 <%= render 'installations/add_installation' %>
 <%= render 'services/add_service' %>
-<%= render @client %>
+
+<%= render @client.decorate %>
+
+<div class="row mb-3">
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <% if @client.services.present? %>
+          <h6 class="display-6">Services list:</h6>
+          <%= render 'services/scheduled_service', service: @client.services.last %>
+          <% if @client.services.last.tickets.present? %>
+            <a class="btn btn-danger disabled mb-3" role="button" aria-disabled="true">Ticket added</a>
+          <% else %>
+            <%= render 'tickets/add_ticket' %>
+          <% end %>
+          <%= render 'services/services_history' %>
+        <% else %>
+          <h5 class="text-muted mb-0">No service performed or scheduled yet...</h5>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
