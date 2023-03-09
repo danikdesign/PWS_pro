@@ -26,7 +26,7 @@
 
   <div class="col-md-6">
     <%= f.label :purifier_brand, class: 'form-label' %>
-    <%= f.select :purifier_brand, PurifierBrand.pluck(:title), {}, class: 'form-select form-select-lg' %>
+    <%= f.select :purifier_brand, PurifierBrand.pluck(:title), {include_blank: true}, data: {controller: 'ts--select'}, class: 'form-select form-select-lg' %>
   </div>
 
   <div class="col-md-2">

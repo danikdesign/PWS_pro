@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import TableController from "./table_controller"
 application.register("table", TableController)
+
+import Ts__SelectController from "./ts/select_controller"
+application.register("ts--select", Ts__SelectController)
