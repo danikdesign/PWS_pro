@@ -1,5 +1,5 @@
 <div class="col-lg-3 mb-3">
-  <div class="card">
+  <div class="card h-100">
     <div class="card-header">
       <h5 class="card-title text-center">
         <%= ticket.ticketable_type %>
@@ -42,7 +42,7 @@
           </li>
           <li class="list-group-item">
             <p class="card-text">
-              <strong><%= ticket.ticketable.replaced %></strong>
+              <strong><%= render ticket.ticketable.purifier_parts %></strong>
             </p>
           </li>
         <% end %>
