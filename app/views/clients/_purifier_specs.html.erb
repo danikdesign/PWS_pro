@@ -1,0 +1,24 @@
+<div class="table-responsive-md">
+  <table class="table">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Brand</th>
+        <th scope="col">Number of stages</th>
+        <th scope="col">Pump</th>
+        <th scope="col">Tank capacity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th><%= client.purifier_brand %></th>
+        <td><%= client.purifier_stages %> stages</td>
+        <% if client.purifier_pump.present? %>
+          <th class="text-success">YES</th>
+        <% else %>
+          <th class="text-danger">NO</th>
+        <% end %>
+        <td><%= client.purifier_tank %> L</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
