@@ -31,13 +31,13 @@
 
   <div class="col-md-2">
     <%= f.label :purifier_stages, class: 'form-label' %>
-    <%= f.select :purifier_stages, PurifierStage.pluck(:number), {}, class: 'form-control form-control-lg' %>
+    <%= f.select :purifier_stages, PurifierStage.pluck(:number), {include_blank: true}, data: {controller: 'ts--select'}, class: 'form-control form-control-lg' %>
   </div>
 
 
   <div class="col-md-2">
     <%= f.label :purifier_tank, class: 'form-label' %>
-    <%= f.select :purifier_tank, PurifierTank.pluck(:capacity), {}, class: 'form-control form-control-lg' %>
+    <%= f.select :purifier_tank, PurifierTank.pluck(:capacity), {include_blank: true}, data: {controller: 'ts--select'}, class: 'form-control form-control-lg' %>
   </div>
 
   <div class="col-md-2">
