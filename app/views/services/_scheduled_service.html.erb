@@ -15,11 +15,11 @@
         <th scope="row"><%= service.date %></th>
         <td><%= render service.purifier_parts %></td>
         <% if service.status == true %>
-          <td class="text-success">Completed</td>
+          <th class="text-success">Completed</th>
         <% else %>
-          <td class="text-danger">
+          <th class="text-danger">
             Not completed
-          </td>
+          </th>
         <% end %>
         <td><%= service.notes %></td>
         <td>

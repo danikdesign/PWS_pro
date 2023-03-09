@@ -3,7 +3,7 @@
     <thead class="table-light">
     <tr>
       <th scope="col">Date</th>
-      <th scope="col">Incoming pressure</th>
+      <th scope="col">Input pressure</th>
       <th scope="col">Input TDS</th>
       <th scope="col">Output TDS</th>
       <th scope="col">Status</th>
@@ -19,16 +19,16 @@
             <td><%= installation.in_tds %></td>
             <td><%= installation.out_tds %></td>
             <% if installation.status == true %>
-              <td class="text-success">Completed</td>
+              <th class="text-success">Completed</th>
             <% else %>
-              <td class="text-danger">
+              <th class="text-danger">
                 Not completed
                 <% if installation.tickets.present? %>
                   Ticket Created
                 <% else %>
                   <%= link_to 'Add ticket', new_installation_ticket_path(installation), class: 'btn btn-danger' %>
                 <% end %>
-              </td>
+              </th>
             <% end %>
             <td><%= installation.notes %></td>
           </tr>
