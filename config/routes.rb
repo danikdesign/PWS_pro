@@ -17,4 +17,6 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
+  get 'services_calendar', to: 'pages#services_calendar'
+
 end

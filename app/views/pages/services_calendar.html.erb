@@ -1,0 +1,18 @@
+<% provide :page_title, 'Services calendar' %>
+<% menu %>
+
+<h1 class="display-5">Services calendar</h1>
+
+<%= month_calendar(events: @services, attribute: :date) do |date, services| %>
+    <div class="day">
+        <div class="col">
+            <%= date.day %>
+        </div>
+
+        <% services.each do |service| %>
+            <span class="badge text-bg-warning mb-1">
+                <%= link_to 'Service. Click for details', client_path(service.client), class: 'text-reset text-decoration-none' %>
+            </span>
+        <% end%>
+    </div>
+<% end %>
