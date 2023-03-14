@@ -11,7 +11,7 @@ class Service < ApplicationRecord
   validates :out_tds_after, presence: true
 
   def self.ransackable_attributes(auth_object = nil)
-    ["date"]
+    ['date', 'client_id']
   end
 
 end

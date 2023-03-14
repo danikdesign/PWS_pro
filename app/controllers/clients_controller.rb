@@ -19,7 +19,7 @@ class ClientsController < ApplicationController
 
   def index
     @q = Client.ransack params[:q]
-    @clients = @q.result.includes :services
+    @clients = @q.result.includes(:installations, :services)
     @clients = @clients.decorate
   end
 
