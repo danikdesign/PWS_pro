@@ -33,15 +33,21 @@ class ServicesController < ApplicationController
   end
 
   def update
-      if @service.update service_update_params
-        redirect_to client_path(@client)
+    if @service.update service_update_params
+      if @service.status
+        ServiceCreator.new(@service.client).call(@service.date)
+        @service.tickets.last.destroy
+        redirect_to tickets_path
+        flash[:success] = 'Ticket has been closed!'
       else
-        render :edit, status: :unprocessable_entity
+        redirect_to client_path(@client)
       end
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
   
   
-
   private
 
   def service_create_params
