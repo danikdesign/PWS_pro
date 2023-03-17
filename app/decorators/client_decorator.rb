@@ -7,10 +7,6 @@ class ClientDecorator < ApplicationDecorator
     created_at.strftime('%Y-%m-%d')
   end
 
-  def formatted_installation_date 
-    
-  end
-
   def name
     "#{first_name} #{last_name}"
   end
