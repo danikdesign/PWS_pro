@@ -48,7 +48,7 @@
             <h4>Installation details:</h6>
             <%= render 'installations/installations_details' %>
             <h4>Purifier specifications:</h6>
-            <%= render 'purifier_specs', client: @client %>
+            <%= render 'installations/purifier_specs', client: @client %>
           <% else %>
             <h5 class="text-muted mb-0">No completed or planned installations yet...</h5>
           <% end %>
