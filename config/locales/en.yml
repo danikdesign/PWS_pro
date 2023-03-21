@@ -128,7 +128,16 @@ en:
       ticket_created: Ticket created
       buttons:
         add_ticket: Add ticket
-
+    purifier_specs:
+      brand: Brand
+      number_of_stages: Number of stages
+      pump: Pump
+      tank: Tank capacity
+      stages: Stages
+      l: L
+      pump_present:
+        'yes': 'YES'
+        'no': 'NO'
   
   services:
     new:

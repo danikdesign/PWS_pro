@@ -2,22 +2,22 @@
   <table class="table">
     <thead class="table-light">
       <tr>
-        <th scope="col">Brand</th>
-        <th scope="col">Number of stages</th>
-        <th scope="col">Pump</th>
-        <th scope="col">Tank capacity</th>
+        <th scope="col"><%= t '.brand' %></th>
+        <th scope="col"><%= t '.number_of_stages' %></th>
+        <th scope="col"><%= t '.pump' %></th>
+        <th scope="col"><%= t '.tank' %></th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th><%= client.purifier_brand %></th>
-        <td><%= client.purifier_stages %> stages</td>
+        <td><%= client.purifier_stages %> <%= t '.stages' %></td>
         <% if client.purifier_pump.present? %>
-          <th class="text-success">YES</th>
+          <th class="text-success"><%= t '.pump_present.yes' %></th>
         <% else %>
-          <th class="text-danger">NO</th>
+          <th class="text-danger"><%= t '.pump_present.no' %></th>
         <% end %>
-        <td><%= client.purifier_tank %> L</td>
+        <td><%= client.purifier_tank %> <%= t '.l' %></td>
       </tr>
     </tbody>
   </table>
