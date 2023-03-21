@@ -147,6 +147,17 @@ en:
     add_service:
       buttons:
         add_service: Add service
+    services_history:
+      date: Date
+      replaced: Replaced parts
+      in_pressure: Input pressure
+      in_tds: Input TDS
+      out_tds_before: Output TDS before
+      out_tds_after: Output TDS after
+      status: Status
+      notes: Notes
+      completed: Completed
+      not_completed: Not completed
 
   tickets:
     index:

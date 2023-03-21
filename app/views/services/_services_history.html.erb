@@ -2,14 +2,14 @@
   <table class="table">
     <thead class="table-light">
     <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Replaced parts</th>
-      <th scope="col">Input pressure</th>
-      <th scope="col">Input TDS</th>
-      <th scope="col">Output TDS before</th>
-      <th scope="col">Output TDS after</th>
-      <th scope="col">Status</th>
-      <th scope="col">Notes</th>
+      <th scope="col"><%= t '.date' %></th>
+      <th scope="col"><%= t '.replaced' %></th>
+      <th scope="col"><%= t '.in_pressure' %></th>
+      <th scope="col"><%= t '.in_tds' %></th>
+      <th scope="col"><%= t '.out_tds_before' %></th>
+      <th scope="col"><%= t '.out_tds_after' %></th>
+      <th scope="col"><%= t '.status' %></th>
+      <th scope="col"><%= t '.notes' %></th>
     </tr>
     </thead>
     <tbody>
@@ -22,10 +22,12 @@
           <td><%= service.out_tds_before %></td>
           <td><%= service.out_tds_after %></td>
           <% if service.status == true %>
-            <td class="text-success">Completed</td>
+            <td class="text-success">
+              <%= t '.completed' %>
+            </td>
           <% else %>
             <td class="text-danger">
-              Not completed
+              <%= t '.not_completed' %>
             </td>
           <% end %>
           <td><%= service.notes %></td>
