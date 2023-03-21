@@ -46,9 +46,9 @@
       <div class="card mb-3">
         <div class="card-body">
           <% if client.installations.present? %>
-            <h4><%= t '.installation_details' %></h6>
+            <h4><%= t '.installation_details' %></h4>
             <%= render 'installations/installations_details' %>
-            <h4><%= t '.purifier_specs' %></h6>
+            <h4><%= t '.purifier_specs' %></h4>
             <%= render 'installations/purifier_specs', client: @client %>
           <% else %>
             <h5 class="text-muted mb-0"><%= t '.no_installation' %></h5>

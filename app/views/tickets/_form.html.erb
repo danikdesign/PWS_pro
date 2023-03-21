@@ -3,7 +3,7 @@
     <%= render 'shared/errors', object: @ticket %>
 
     <div class="col-md-6">
-      <%= f.label :date, class: 'form-label' %>
+      <%= f.label :datetime, class: 'form-label' %>
       <%= f.datetime_field :datetime, class: 'form-control form-control-lg' %>
     </div>
 
@@ -13,7 +13,7 @@
     </div>
 
     <div class="col-12 my-3">
-      <%= f.submit 'Add ticket', class: 'btn btn-primary' %>
+      <%= f.submit t('.buttons.add_ticket'), class: 'btn btn-primary' %>
     </div>
 
   <% end %>

@@ -30,7 +30,9 @@ en:
         out_tds: Output TDS
         notes: Notes
         status: Status
-        client_id: ID
+      ticket:
+        datetime: Date and time
+        notes: Notes
 
   ransack:
     asc: ascending
@@ -96,8 +98,13 @@ en:
       address: 'Address:'
       no_installation: No information available
       no_service: Service is not yet scheduled
-      installation_details: 'Installation details:'
-      purifier_specs: 'Purifier specifications:'
+      installation_details: Installation details
+      purifier_specs: Purifier specifications
+    services_list:
+      scheduled_service: Scheduled service
+      service_history: Service history
+      buttons:
+        ticket_added: Ticket added
 
     
 
@@ -158,12 +165,33 @@ en:
       notes: Notes
       completed: Completed
       not_completed: Not completed
+    scheduled_service:
+      date: Date
+      replacement: Parts for replace
+      status: Status
+      notes: Notes
+      ticket_datetime: Ticket datetime
+      completed: Completed
+      not_completed: Not completed
+      buttons:
+        edit: Edit
+
 
   tickets:
     index:
-      title:
+      title: Tickets
+      header: Tickets
     new:
-      title:
+      title: New ticket
+      header: New ticket
+    form:
+      buttons:
+        add_ticket: Add ticket
+    add_ticket:
+      buttons:
+       add: Add ticket
+
+
   
   pages:
     index:

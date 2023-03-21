@@ -3,11 +3,11 @@
   <table class="table">
     <thead class="table-light">
       <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Parts for replace</th>
-        <th scope="col">Status</th>
-        <th scope="col">Notes</th>
-        <th scope="col">Ticket datetime</th>
+        <th scope="col"><%= t '.date' %></th>
+        <th scope="col"><%= t '.replacement' %></th>
+        <th scope="col"><%= t '.status' %></th>
+        <th scope="col"><%= t '.notes' %></th>
+        <th scope="col"><%= t '.ticket_datetime' %></th>
       </tr>
     </thead>
     <tbody>
@@ -15,10 +15,12 @@
         <th scope="row"><%= service.date %></th>
         <td><%= render service.purifier_parts %></td>
         <% if service.status == true %>
-          <th class="text-success">Completed</th>
+          <th class="text-success">
+            <%= t '.completed' %>
+          </th>
         <% else %>
           <th class="text-danger">
-            Not completed
+            <%= t '.not_completed' %>
           </th>
         <% end %>
         <td><%= service.notes %></td>
@@ -31,7 +33,7 @@
     </tbody>
   </table>
 </div>
-<%= link_to 'Edit', edit_client_service_path(@client, service), class: 'btn btn-outline-danger mb-3' %>
+<%= link_to t('.buttons.edit'), edit_client_service_path(@client, service), class: 'btn btn-outline-danger mb-3' %>
 <% end %>
 
 
