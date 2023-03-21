@@ -1,6 +1,7 @@
-<% menu %>
-<h1 class="display-5">Welcome</h1>
+<% provide :page_title, t('.title') %>
+<% currently_at t 'menu.home' %>
+<h1 class="display-5"><%= t 'pages.index.header' %></h1>
 <hr />
 <p class="lead">
-  Soon there will be some functionality here...
+  <%= t 'pages.index.description' %>
 </p>

@@ -3,17 +3,11 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="/">PWS</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Clients
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="<%= new_client_path %>">New</a></li>
-              <li><a class="dropdown-item" href="<%= clients_path %>">Clients list</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><%= link_to 'Tickets', tickets_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'Calendar', services_calendar_path, class: 'nav-link' %></li>
+          <li><%= nav_tab t('menu.home'), root_path, { class: 'nav-link', current_page: current_page } %></li>
+          <li><%= nav_tab t('menu.clients'), clients_path, { class: 'nav-link', current_page: current_page } %></li>
+          <li><%= nav_tab t('menu.new_client'), new_client_path, { class: 'nav-link', current_page: current_page } %></li>
+          <li><%= nav_tab t('menu.tickets'), tickets_path, { class: 'nav-link', current_page: current_page } %></li>
+          <li><%= nav_tab t('menu.calendar'), services_calendar_path, { class: 'nav-link', current_page: current_page } %></li>
         </ul>
     </div>
   </nav>

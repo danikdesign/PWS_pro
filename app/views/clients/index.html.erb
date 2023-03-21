@@ -1,7 +1,7 @@
-<% provide :page_title, 'Clients' %>
-<% menu %>
+<% provide :page_title, t('.title') %>
+<% currently_at t 'menu.clients' %>
 
-<h1 class="display-5"><%= link_to 'Clients list', clients_path, class: 'text-reset text-decoration-none' %></h1>
+<h1 class="display-5"><%= link_to t('.header'), clients_path, class: 'text-reset text-decoration-none' %></h1>
 
 <div class="row-cols-3 mb-3">
   <%= render 'clients_search' %>
