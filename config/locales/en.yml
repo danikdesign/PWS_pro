@@ -116,6 +116,19 @@ en:
     add_installation:
       buttons:
         add_installation: Add installation
+    installations_details:
+      date: Date
+      in_pressure: Input pressure
+      in_tds: Input TDS
+      out_tds: Output TDS
+      status: Status
+      notes: Notes
+      completed: Completed
+      not_completed: Not completed
+      ticket_created: Ticket created
+      buttons:
+        add_ticket: Add ticket
+
   
   services:
     new:

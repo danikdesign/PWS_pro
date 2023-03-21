@@ -2,12 +2,12 @@
   <table class="table">
     <thead class="table-light">
     <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Input pressure</th>
-      <th scope="col">Input TDS</th>
-      <th scope="col">Output TDS</th>
-      <th scope="col">Status</th>
-      <th scope="col">Notes</th>
+      <th scope="col"><%= t '.date' %></th>
+      <th scope="col"><%= t '.in_pressure' %></th>
+      <th scope="col"><%= t '.in_tds' %></th>
+      <th scope="col"><%= t '.out_tds' %></th>
+      <th scope="col"><%= t '.status' %></th>
+      <th scope="col"><%= t '.notes' %></th>
     </tr>
     </thead>
     <tbody>
@@ -19,14 +19,16 @@
             <td><%= installation.in_tds %></td>
             <td><%= installation.out_tds %></td>
             <% if installation.status == true %>
-              <th class="text-success">Completed</th>
+              <th class="text-success">
+                <%= t '.completed' %>
+              </th>
             <% else %>
               <th class="text-danger">
-                Not completed
+                <%= t '.not_completed' %>
                 <% if installation.tickets.present? %>
-                  Ticket Created
+                  <%= t '.ticked_created' %>
                 <% else %>
-                  <%= link_to 'Add ticket', new_installation_ticket_path(installation), class: 'btn btn-danger' %>
+                  <%= link_to t('.buttons.add_ticket'), new_installation_ticket_path(installation), class: 'btn btn-danger' %>
                 <% end %>
               </th>
             <% end %>
