@@ -1,39 +1,40 @@
 <%= turbo_frame_tag client do %>
   <div class="row mb-3">
+  
     <div class="col-sm-4 mb-3">
       <div class="card md-3">
         <div class="card-body">
           <h1 class="display-6"><%= client.last_name %> <%= client.first_name %></h5>
           <h4>
-            <small class="text-muted">Purifier:</small>
+            <small class="text-muted"><%= t '.purifier' %></small>
             <%= client.purifier %>
           </h4>
 
           <h4>
-            <small class="text-muted">Install date:</small>
+            <small class="text-muted"><%= t '.date_of_installation' %></small>
             <% if client.installations.present? %>
               <time datetime="<%= client.installations.last.date %>">
                 <%= client.installations.last.date %>
               </time>
             <% else %>
-              No information available
+              <%= t '.no_installation' %>
             <% end %>
           </h4>
 
           <h4>
-            <small class="text-muted">Next service date:</small>
+            <small class="text-muted"><%= t '.next_service_date' %></small>
             <% if client.services.present? %>
               <%= client.services.last.date %>
             <% else %>
-              Service is not yet scheduled
+              <%= t '.no_service' %>
             <% end %>
           </h4>
           <h4>
-            <small class="text-muted">Phone:</small>
+            <small class="text-muted"><%= t '.phone_number' %></small>
             <%= client.phone %>
           </h4>
           <h4>
-            <small class="text-muted">Address:</small>
+            <small class="text-muted"><%= t '.address' %></small>
             <%= client.address %>
           </h4>
         </div>
@@ -45,16 +46,18 @@
       <div class="card mb-3">
         <div class="card-body">
           <% if client.installations.present? %>
-            <h4>Installation details:</h6>
+            <h4><%= t '.installation_details' %></h6>
             <%= render 'installations/installations_details' %>
-            <h4>Purifier specifications:</h6>
+            <h4><%= t '.purifier_specs' %></h6>
             <%= render 'installations/purifier_specs', client: @client %>
           <% else %>
-            <h5 class="text-muted mb-0">No completed or planned installations yet...</h5>
+            <h5 class="text-muted mb-0"><%= t '.no_installation' %></h5>
           <% end %>
         </div>
       </div>
+
     </div>
+
   </div>
 <% end %>
 

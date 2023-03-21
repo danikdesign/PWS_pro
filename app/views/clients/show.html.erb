@@ -1,8 +1,7 @@
 <% currently_at t 'menu.clients' %>
-<% provide :page_title, 'Client profile' %>
-<% menu %>
+<% provide :page_title, t('.title') %>
 
-<%= link_to 'Back', clients_path, class: 'btn btn-outline-secondary mb-3' %>
+<%= link_to t('.buttons.back'), clients_path, class: 'btn btn-outline-secondary mb-3' %>
 <%= render 'installations/add_installation' %>
 <%= render 'services/add_service' %>
 

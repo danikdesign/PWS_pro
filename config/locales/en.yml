@@ -14,6 +14,7 @@ en:
 
     attributes:
       client:
+        id: ID
         first_name: First Name
         last_name: Last Name
         phone: Phone number
@@ -30,6 +31,48 @@ en:
         notes: Notes
         status: Status
         client_id: ID
+
+  ransack:
+    asc: ascending
+    desc: descending
+    predicates:
+      cont: contains
+      not_cont: not contains
+      start: starts with
+      end: ends with
+      gt: greater than
+      lt: less than
+    models:
+      client: Client
+      installation: Installation
+      service: Service
+      ticket: Ticket
+      purifier_brand: Purifier brand
+      purifier_part: Purifier part
+      purifier_stage: Purifier stage
+      purifier_tank: Purifier tank
+      service_purifier_part: Replacement part
+    attributes:
+      client:
+        id: '#'
+        first_name: Name
+        last_name: Last Name
+        phone: Phone number
+        address: Address
+        purifier_brand: Purifier model
+        purifier_stages: Stages
+        purifier_tank: Tank
+        purifier_pump: Pump
+      installation:
+        date: Date of installation
+        pressure: Input pressure
+        in_tds: Input TDS
+        out_tds: Output TDS
+        notes: Notes
+        status: Status
+        client_id: ID
+      service:
+        date: Next service date
   
   menu:
     home: Home
@@ -45,24 +88,43 @@ en:
     clients_search:
       placeholder: Enter first name or phone number
       button: Search
+    client:
+      purifier: 'Purifier model:'
+      date_of_installation: 'Date of installation:'
+      next_service_date: 'Next service date:'
+      phone_number: 'Phone number:'
+      address: 'Address:'
+      no_installation: No information available
+      no_service: Service is not yet scheduled
+      installation_details: 'Installation details:'
+      purifier_specs: 'Purifier specifications:'
+
     
 
     new:
       title:
     show:
-      title:
+      title: Client profile
+      buttons:
+        back: Back
   
   installations:
     new:
       title:
     edit:
       title:
+    add_installation:
+      buttons:
+        add_installation: Add installation
   
   services:
     new:
       title:
     edit:
       title:
+    add_service:
+      buttons:
+        add_service: Add service
 
   tickets:
     index:
