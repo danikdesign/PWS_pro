@@ -1,0 +1,12 @@
+uk:
+  pages:
+    index:
+      title: Головна
+      header: Привіт
+      description: Незабаром тут буде деякий функціонал...
+  menu:
+    home: Головна
+    clients: Клієнти
+    new_client: Додати клієнта
+    tickets: Тікети
+    calendar: Календар
