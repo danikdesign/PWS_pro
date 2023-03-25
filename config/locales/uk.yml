@@ -1,9 +1,202 @@
 uk:
+
+  activerecord:
+    models:
+      client: Клієнт
+      installation: Встановлення
+      service: Обслуговування
+      ticket: Тікет
+      purifier_brand: Бренд
+      purifier_part: Елемент
+      purifier_stage: Ступінь
+      purifier_tank: Накопичувальний бак
+      service_purifier_part: Елемент для заміни
+
+    attributes:
+      client:
+        id: ID
+        first_name: Імʼя
+        last_name: Фамілія
+        phone: Номер телефону
+        address: Адреса
+        purifier_brand: Бренд
+        purifier_stages: Кількість ступенів
+        purifier_tank: Бак
+        purifier_pump: Помпа
+      installation:
+        date: Дата встановлення
+        pressure: Вхідний тиск
+        in_tds: Вхідний TDS
+        out_tds: Вихідний TDS
+        notes: Примітки
+        status: Статус
+      ticket:
+        datetime: Дата та час
+        notes: Примітки
+
+  ransack:
+    asc: за зростанням
+    desc: в порядку зменьшення
+    predicates:
+      cont: містить
+      not_cont: не містить
+      start: починається з
+      end: закінчується на
+      gt: більше ніж
+      lt: меньше ніж
+    models:
+      client: Клієнт
+      installation: Встановлення
+      service: Обслуговування
+      ticket: Тікет
+      purifier_brand: Бренд
+      purifier_part: Елемент
+      purifier_stage: Ступінь
+      purifier_tank: Накопичувальний бак
+      service_purifier_part: Елемент для заміни
+    attributes:
+      client:
+        id: '#'
+        first_name: Імʼя
+        last_name: Фамілія
+        phone: Номер телефону
+        address: Адреса
+        purifier_brand: Модель осмосу
+        purifier_stages: Ступені
+        purifier_tank: Накопичувальний бак
+        purifier_pump: Помпа
+      installation:
+        date: Даа встановлення
+        pressure: Вхідний тиск
+        in_tds: Вхідний TDS
+        out_tds: Вихідний TDS
+        notes: Примітки
+        status: Статус
+        client_id: ID
+      service:
+        date: Дата наступного обслуговування
+  
+  clients:
+    index:
+      title: Клієнти
+      header: Клієнтська база
+    clients_search:
+      placeholder: Введіть фамілію або номер телефону
+      button: Пошук
+    client:
+      purifier: 'Модель осмосу:'
+      date_of_installation: 'Дата встановлення:'
+      next_service_date: 'Дата найближчого обслуговування:'
+      phone_number: 'Номер телефону:'
+      address: 'Адреса:'
+      no_installation: Немає інформації
+      no_service: Сервісне обслуговування наразі не заплановане
+      installation_details: Подробиці встановлення
+      purifier_specs: Характеристики системи
+    services_list:
+      scheduled_service: Найближче планове обслуговування
+      service_history: Історія обслуговувань
+      buttons:
+        ticket_added: Тікет створений
+    new:
+      title: Новий клієнт
+    show:
+      title: Профіль клієнта
+      buttons:
+        back: Назад
+  
+  installations:
+    new:
+      title: Додати встановлення
+    edit:
+      title: Редагувати встановлення
+    add_installation:
+      buttons:
+        add_installation: Додати встановлення
+    installations_details:
+      date: Дата
+      in_pressure: Вхідний тиск
+      in_tds: Вхідний TDS
+      out_tds: Вихідний TDS
+      status: Статус
+      notes: Примітки
+      completed: Виконано
+      not_completed: Не виконано
+      ticket_created: Тікет створений
+      buttons:
+        add_ticket: Додати тікет
+    purifier_specs:
+      brand: Бренд
+      number_of_stages: Кількість ступенів
+      pump: Помпа
+      tank: Обʼєм баку
+      stages: Ступенів
+      l: л
+      pump_present:
+        'yes': 'Є'
+        'no': 'Немає'
+  
+  services:
+    new:
+      title: Нове обслуговування
+    edit:
+      title: Редаувати обслуговування
+    add_service:
+      buttons:
+        add_service: Створити обслуговування
+    services_history:
+      date: Дата
+      replaced: Замінені елементи
+      in_pressure: Вхідний тиск
+      in_tds: Вхідний TDS
+      out_tds_before: Вихідний TDS до
+      out_tds_after: Вихідний TDS після
+      status: Статус
+      notes: Примітки
+      completed: Виконано
+      not_completed: Не виконано
+    scheduled_service:
+      date: Дата
+      replacement: Елементи для заміни
+      status: Статус
+      notes: Примітки
+      ticket_datetime: Дата та час тікета
+      completed: Виконано
+      not_completed: Не виконано
+      buttons:
+        edit: Редагувати
+
+
+  tickets:
+    index:
+      title: Тікети
+      header: Поточні тікети
+    new:
+      title: Новий тікет
+      header: Новий тікет
+    form:
+      buttons:
+        add_ticket: Додати тікет
+    add_ticket:
+      buttons:
+       add: Додати тікет
+    ticket:
+      datetime: 'Дата та час:'
+      client: 'Клієнт:'
+      address: 'Адреса:'
+      phone: 'Номер телефону:'
+      installation: 'Система для втсановлення:'
+      service: 'Заміна наступних елементів:'
+      buttons:
+        close: Закрити тікет
+
   pages:
     index:
       title: Головна
       header: Привіт
       description: Незабаром тут буде деякий функціонал...
+    services calendar: 
+      title: Календар обслуговувань
   menu:
     home: Головна
     clients: Клієнти

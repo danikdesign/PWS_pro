@@ -190,6 +190,16 @@ en:
     add_ticket:
       buttons:
        add: Add ticket
+    ticket:
+      datetime: 'Date and time:'
+      client: 'Client:'
+      address: 'Address:'
+      phone: 'Phone num:'
+      installation: 'Purifier for installation:'
+      service: 'Replacement parts:'
+      buttons:
+        close: Close ticket
+
 
 
   
