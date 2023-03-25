@@ -40,12 +40,12 @@
     <div>
       <%= f.label :status, class: 'form-check-label' do %>
         <%= f.check_box :status, class: 'form-check-input' %>
-        <span>Completed</span>
+        <span><%= t '.status_check' %></span>
       <% end %>
     </div>
 
     <div class="col-12 my-3">
-      <%= f.submit 'Save', class: 'btn btn-primary' %>
+      <%= f.submit t('.buttons.add'), class: 'btn btn-primary' %>
     </div>
 
   <% end %>

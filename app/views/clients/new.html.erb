@@ -1,5 +1,5 @@
-<% provide :page_title, 'Add client' %>
+<% provide :page_title, t('.title') %>
 <% currently_at t 'menu.new_client' %>
 
-<h1 class="display-5">Add new client</h1>
+<h1 class="display-5"><%= t '.header' %></h1>
 <%= render 'form' %>

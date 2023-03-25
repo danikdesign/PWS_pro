@@ -1,7 +1,7 @@
 <%= render 'shared/errors', object: @client %>
 
 <p class="lead">
-  Complete the form below
+  <%= t '.tagline' %>
 </p>
 <%= form_with model: @client, class: 'row g-3' do |f| %>
   <div class="col-md-6">
@@ -54,6 +54,6 @@
 
 
   <div class="col-12">
-    <%= f.submit 'Add client', class: 'btn btn-primary' %>
+    <%= f.submit t('.buttons.add'), class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -11,7 +11,6 @@ uk:
       purifier_stage: Ступінь
       purifier_tank: Накопичувальний бак
       service_purifier_part: Елемент для заміни
-
     attributes:
       client:
         id: ID
@@ -33,6 +32,10 @@ uk:
       ticket:
         datetime: Дата та час
         notes: Примітки
+        ticketable:  
+          ticketable_type:
+            service: Обслуговування
+            installation: Встановлення
 
   ransack:
     asc: за зростанням
@@ -66,7 +69,7 @@ uk:
         purifier_tank: Накопичувальний бак
         purifier_pump: Помпа
       installation:
-        date: Даа встановлення
+        date: Дата встановлення
         pressure: Вхідний тиск
         in_tds: Вхідний TDS
         out_tds: Вихідний TDS
@@ -74,7 +77,7 @@ uk:
         status: Статус
         client_id: ID
       service:
-        date: Дата наступного обслуговування
+        date: Найближче обслуговування
   
   clients:
     index:
@@ -100,6 +103,11 @@ uk:
         ticket_added: Тікет створений
     new:
       title: Новий клієнт
+      header: Додати нового клієнта
+    form:
+      tagline: Заповніть форму нижче
+      buttons:
+        add: Додати
     show:
       title: Профіль клієнта
       buttons:
@@ -107,12 +115,16 @@ uk:
   
   installations:
     new:
-      title: Додати встановлення
+      title: Створити встановлення
     edit:
       title: Редагувати встановлення
     add_installation:
       buttons:
-        add_installation: Додати встановлення
+        add_installation: Створити встановлення
+    form:
+      status_check: Виконано
+      buttons:
+        add: Створити
     installations_details:
       date: Дата
       in_pressure: Вхідний тиск
@@ -144,6 +156,10 @@ uk:
     add_service:
       buttons:
         add_service: Створити обслуговування
+    form:
+      status_check: Виконано
+      buttons:
+        add: Створити
     services_history:
       date: Дата
       replaced: Замінені елементи
@@ -195,8 +211,16 @@ uk:
       title: Головна
       header: Привіт
       description: Незабаром тут буде деякий функціонал...
-    services calendar: 
+    services_calendar: 
       title: Календар обслуговувань
+      header: Календар обслуговувань
+
+  simple_calendar:
+    month_calendar:
+      badges:
+        service: Обслуговування
+
+
   menu:
     home: Головна
     clients: Клієнти
