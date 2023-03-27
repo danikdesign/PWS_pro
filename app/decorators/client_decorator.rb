@@ -2,9 +2,11 @@
 
 class ClientDecorator < ApplicationDecorator
   delegate_all
+  decorates_association :installations, with: InstallationDecorator
+  decorates_association :services, with: ServiceDecorator
 
   def formatted_created_at
-    created_at.strftime('%Y-%m-%d')
+    l created_at, format: :long
   end
 
   def name

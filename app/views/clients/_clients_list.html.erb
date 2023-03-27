@@ -23,15 +23,15 @@
         <td><%= client.purifier %></td>
 
         <% if client.installations.present? %>
-          <td><%= client.installations.last.date %></td>
+          <td><%= client.installations.last.formatted_date %></td>
         <% else %>
-          <td>No installations</td>
+          <td><%= t('.no_info') %></td>
         <% end %>
 
         <% if client.services.present? %>
-          <td><%= client.services.last.date %></td>
+          <td><%= client.services.last.formatted_date %></td>
         <% else %>
-          <td>No service</td>
+          <td><%= t('.no_info') %></td>
         <% end %>
 
       <% end %>

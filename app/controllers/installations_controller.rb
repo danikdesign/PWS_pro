@@ -72,5 +72,6 @@ class InstallationsController < ApplicationController
 
   def set_installation!  
     @installation = @client.installations.find params[:id]
+    @insallation = @installation.decorate
   end
 end

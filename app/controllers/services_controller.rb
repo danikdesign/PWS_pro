@@ -79,6 +79,7 @@ class ServicesController < ApplicationController
 
   def set_service!  
     @service = @client.services.find params[:id]
+    @service = @service.decorate
   end
 
   def fetch_parts 

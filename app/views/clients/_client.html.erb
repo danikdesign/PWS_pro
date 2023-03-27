@@ -13,20 +13,21 @@
           <h4>
             <small class="text-muted"><%= t '.date_of_installation' %></small>
             <% if client.installations.present? %>
-              <time datetime="<%= client.installations.last.date %>">
-                <%= client.installations.last.date %>
+              <time datetime="<%= client.installations.last.formatted_date %>">
+                <%= client.installations.last.formatted_date %>
               </time>
             <% else %>
-              <%= t '.no_installation' %>
+              <%= t '.no_info' %>
             <% end %>
           </h4>
 
           <h4>
             <small class="text-muted"><%= t '.next_service_date' %></small>
             <% if client.services.present? %>
-              <%= client.services.last.date %>
+              <time datetime="<%= client.services.last.formatted_date %>">
+                <%= client.services.last.formatted_date %>
             <% else %>
-              <%= t '.no_service' %>
+              <%= t '.no_info' %>
             <% end %>
           </h4>
           <h4>

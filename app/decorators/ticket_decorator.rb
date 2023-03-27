@@ -2,7 +2,7 @@ class TicketDecorator < ApplicationDecorator
   delegate_all
 
   def formatted_datetime
-    datetime.strftime('%a %d %b %Y %H:%M')
+    l datetime, format: :long
   end
 
   def client_name
