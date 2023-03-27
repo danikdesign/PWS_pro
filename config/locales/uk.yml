@@ -90,17 +90,21 @@ uk:
     clients_search:
       placeholder: Введіть фамілію або номер телефону
       button: Пошук
+    clients_list:
+      no_info: Немає інформації
     client:
       purifier: 'Модель осмосу:'
       date_of_installation: 'Дата встановлення:'
       next_service_date: 'Дата найближчого обслуговування:'
       phone_number: 'Номер телефону:'
       address: 'Адреса:'
-      no_installation: Немає інформації
+      no_info: Немає інформації
+      no_installation: Немає інформації щодо встановлення
       no_service: Сервісне обслуговування наразі не заплановане
       installation_details: Подробиці встановлення
       purifier_specs: Характеристики системи
     services_list:
+      no_service: Поки що немає виконаних чи запланованих обслуговувань...
       scheduled_service: Найближче планове обслуговування
       service_history: Історія обслуговувань
       buttons:
@@ -108,14 +112,20 @@ uk:
     new:
       title: Новий клієнт
       header: Додати нового клієнта
+    edit:
+      title: Редагування профілю
+      header: Редагування профілю клієнта
     form:
       tagline: Заповніть форму нижче
       buttons:
-        add: Додати
+        add: Зберегти
     show:
       title: Профіль клієнта
       buttons:
         back: Назад
+        edit: Редагувати профіль
+        delete: Видалити клієнта
+      confirm: 'Ви дійсно хочете видалити цього клієнта з бази?'
   
   installations:
     new:

@@ -33,8 +33,8 @@ en:
         date: Date
         pressure: Input pressure
         in_tds: Input TDS
-        out_tds_before: Output TDS
-        out_tds_after: Output TDS
+        out_tds_before: Output TDS before
+        out_tds_after: Output TDS after
         notes: Notes
         status: Status
       ticket:
@@ -90,17 +90,21 @@ en:
     clients_search:
       placeholder: Enter first name or phone number
       button: Search
+    clients_list:
+      no_info: No information
     client:
       purifier: 'Purifier model:'
       date_of_installation: 'Date of installation:'
       next_service_date: 'Next service date:'
       phone_number: 'Phone number:'
       address: 'Address:'
-      no_installation: No information available
+      no_info: No information
+      no_installation: No installation details available
       no_service: Service is not yet scheduled
       installation_details: Installation details
       purifier_specs: Purifier specifications
     services_list:
+      no_service: No service performed or scheduled yet...
       scheduled_service: Scheduled service
       service_history: Service history
       buttons:
@@ -108,6 +112,9 @@ en:
     new:
       title: New client
       header: Add new client
+    edit:
+      title: Edit client profile
+      header: Edit client profile
     form:
       tagline: Complete the form below
       buttons:
@@ -116,7 +123,10 @@ en:
       title: Client profile
       buttons:
         back: Back
-  
+        edit: Edit profile
+        delete: Delete client
+      confirm: 'Do you want to delete the client?'
+      
   installations:
     new:
       title: Add installation
