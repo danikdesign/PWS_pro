@@ -40,7 +40,17 @@ class ServicesController < ApplicationController
         redirect_to tickets_path
         flash[:success] = 'Ticket has been closed!'
       else
-        redirect_to client_path(@client)
+        respond_to do |format|
+          format.html do
+            flash[:success] = "Service has been updated"
+            redirect_to client_path(@client)
+          end
+  
+          format.turbo_stream do
+            @service = @service.decorate
+            flash.now[:success] = "Service has been updated"
+          end
+        end
       end
     else
       render :edit, status: :unprocessable_entity
