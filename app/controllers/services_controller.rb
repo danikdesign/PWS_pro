@@ -15,12 +15,12 @@ class ServicesController < ApplicationController
     if @service.save
       respond_to do |format|
         format.html do
-          flash[:success] = "New service has been added"
+          flash[:success] = t('.success')
           redirect_to clients_path
         end
 
         format.turbo_stream do
-          flash.now[:success] = "New service has been added"
+          flash.now[:success] = t('.success')
         end
       end
 
@@ -38,17 +38,17 @@ class ServicesController < ApplicationController
         ServiceCreator.new(@service.client).call(@service.date)
         @service.tickets.last.destroy
         redirect_to tickets_path
-        flash[:success] = 'Ticket has been closed!'
+        flash[:success] = t('.from_ticket')
       else
         respond_to do |format|
           format.html do
-            flash[:success] = "Service has been updated"
+            flash[:success] = t('.success')
             redirect_to client_path(@client)
           end
   
           format.turbo_stream do
             @service = @service.decorate
-            flash.now[:success] = "Service has been updated"
+            flash.now[:success] = t('.success')
           end
         end
       end

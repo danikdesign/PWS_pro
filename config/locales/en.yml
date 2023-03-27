@@ -84,6 +84,12 @@ en:
         date: Next service date
   
   clients:
+    create:
+      success: The client has been added
+    update:
+      success: The information has been updated
+    destroy:
+      success: Client profile was deleted
     index:
       title: Clients
       header: List of clients
@@ -92,7 +98,7 @@ en:
       button: Search
     clients_list:
       no_info: No information
-    client:
+    client: 
       purifier: 'Purifier model:'
       date_of_installation: 'Date of installation:'
       next_service_date: 'Next service date:'
@@ -128,6 +134,11 @@ en:
       confirm: 'Do you want to delete the client?'
       
   installations:
+    create:
+      success: Installation has been added
+    update:
+      success: Installation has been updated
+      from_ticket: Ticket has been closed!
     new:
       title: Add installation
       header: Add installation
@@ -165,6 +176,11 @@ en:
         'no': 'NO'
   
   services:
+    create:
+      success: New service has been added
+    update:
+      success: Service has been updated
+      from_ticket: Ticket has been closed!
     new:
       title: Add new service
       header: Add new service
@@ -202,6 +218,8 @@ en:
 
 
   tickets:
+    create: 
+      success: Ticket has been created!
     index:
       title: Tickets
       header: Tickets

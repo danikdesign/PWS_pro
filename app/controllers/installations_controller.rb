@@ -12,12 +12,12 @@ class InstallationsController < ApplicationController
     if @installation.save
       respond_to do |format|
         format.html do
-          flash[:success] = "Installation has been added"
+          flash[:success] = t('.success')
           redirect_to client_path(@client)
         end
 
         format.turbo_stream do
-          flash.now[:success] = "Installation has been added"
+          flash.now[:success] = t('.success')
         end
       end
     else
@@ -34,7 +34,7 @@ class InstallationsController < ApplicationController
         ServiceCreator.new(@installation.client).call(@installation.date)
         @installation.tickets.last.destroy
         redirect_to tickets_path
-        flash[:success] = 'Ticket has been closed!'
+        flash[:success] = t('.from_ticket')
       else
         redirect_to client_path(@client)
       end

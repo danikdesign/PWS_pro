@@ -84,6 +84,12 @@ uk:
         date: Найближче обслуговування
   
   clients:
+    create:
+      success: Клієнт доданий до бази!
+    update:
+      success: Профіль клієнта оновлений
+    destroy:
+      success: Клієнт видалений з бази!
     index:
       title: Клієнти
       header: Клієнтська база
@@ -128,6 +134,11 @@ uk:
       confirm: 'Ви дійсно хочете видалити цього клієнта з бази?'
   
   installations:
+    create:
+      success: Встановлення додано!
+    update:
+      success: Деталі встановлення оновлені
+      from_ticket: Тікет успішно закритий
     new:
       title: Створити встановлення
     edit:
@@ -163,6 +174,11 @@ uk:
         'no': 'Немає'
   
   services:
+    create:
+      success: Обслуговування створено!
+    update:
+      success: Обслуговування оновлено
+      from_ticket: Тікет успішно закритий
     new:
       title: Нове обслуговування
       header: Нове обслуговування
@@ -201,6 +217,8 @@ uk:
 
 
   tickets:
+    create: 
+      success: Тікет створений!
     index:
       title: Тікети
       header: Поточні тікети
@@ -212,7 +230,7 @@ uk:
         add_ticket: Додати тікет
     add_ticket:
       buttons:
-       add: Додати тікет
+        add: Додати тікет
     ticket:
       ticketable_type:
         service: Обслуговування

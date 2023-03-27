@@ -14,7 +14,7 @@ class TicketsController < ApplicationController
     if @ticket.save
       respond_to do |format|
         format.html do
-          flash[:success] = "Ticket has been created"
+          flash[:success] = t('.success')
           redirect_to client_path(@client)
         end
 

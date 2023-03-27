@@ -9,7 +9,7 @@ class ClientsController < ApplicationController
     @client = Client.new client_params
 
     if @client.save
-      flash[:success] = 'The client has been added'
+      flash[:success] = t('.success')
       redirect_to client_path(@client)
     else
       render :new, status: :unprocessable_entity
@@ -21,7 +21,7 @@ class ClientsController < ApplicationController
 
   def update
     if @client.update client_params
-      flash[:success] = 'The information has been updated'
+      flash[:success] = t('.success')
       redirect_to client_path(@client)
     else
       render :edit, status: :unprocessable_entity
@@ -32,7 +32,7 @@ class ClientsController < ApplicationController
     @client.destroy
     respond_to do |format|
       format.html do
-        flash[:success] = "Client profile was deleted"
+        flash[:success] = t('.success')
         redirect_to clients_path, status: :see_other
       end
     end
