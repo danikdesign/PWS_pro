@@ -4,6 +4,11 @@
 <%= link_to t('.buttons.back'), clients_path, class: 'btn btn-outline-secondary mb-3' %>
 <%= render 'installations/add_installation' %>
 <%= render 'services/add_service' %>
+<%= link_to t('.buttons.edit'), edit_client_path(@client), class: 'btn btn-outline-danger mb-3' %>
+<%= link_to t('.buttons.delete'), client_path(@client), class: 'btn btn-danger mb-3', data: {
+                        turbo_method: :delete,
+                        turbo_confirm: t('.confirm')
+                      }, value: "Destroy" %>
 
 <%= render @client.decorate %>
 
