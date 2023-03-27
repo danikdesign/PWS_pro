@@ -2,7 +2,11 @@
   <div class="card h-100">
     <div class="card-header">
       <h5 class="card-title text-center">
-        <%= ticket.ticketable_type %>
+        <% if ticket.ticketable_type == 'Service' %>
+          <%= t '.ticketable_type.service' %>
+        <% else %>
+          <%= t '.ticketable_type.installation' %>
+        <% end %>
       </h5>
       <h6 class="card-subtitle text-danger text-center">
         <%= t '.datetime' %> <%= ticket.formatted_datetime %>

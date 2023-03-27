@@ -29,13 +29,17 @@ uk:
         out_tds: Вихідний TDS
         notes: Примітки
         status: Статус
+      service:
+        date: Дата
+        pressure: Вхідний тиск
+        in_tds: Вхідний TDS
+        out_tds_before: Вихідний TDS до
+        out_tds_after: Вихідний TDS після
+        notes: Примітки
+        status: Статус
       ticket:
         datetime: Дата та час
         notes: Примітки
-        ticketable:  
-          ticketable_type:
-            service: Обслуговування
-            installation: Встановлення
 
   ransack:
     asc: за зростанням
@@ -124,7 +128,7 @@ uk:
     form:
       status_check: Виконано
       buttons:
-        add: Створити
+        add: Зберегти
     installations_details:
       date: Дата
       in_pressure: Вхідний тиск
@@ -151,15 +155,18 @@ uk:
   services:
     new:
       title: Нове обслуговування
+      header: Нове обслуговування
     edit:
-      title: Редаувати обслуговування
+      title: Деталі обслуговування
+      header: Деталі обслуговування
     add_service:
       buttons:
         add_service: Створити обслуговування
     form:
+      purifier_part_ids: Елементи для заміни
       status_check: Виконано
       buttons:
-        add: Створити
+        add: Зберегти
     services_history:
       date: Дата
       replaced: Замінені елементи
@@ -197,6 +204,9 @@ uk:
       buttons:
        add: Додати тікет
     ticket:
+      ticketable_type:
+        service: Обслуговування
+        installation: Встановлення
       datetime: 'Дата та час:'
       client: 'Клієнт:'
       address: 'Адреса:'

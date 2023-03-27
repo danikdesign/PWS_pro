@@ -29,13 +29,18 @@ en:
         out_tds: Output TDS
         notes: Notes
         status: Status
+      service:
+        date: Date
+        pressure: Input pressure
+        in_tds: Input TDS
+        out_tds_before: Output TDS
+        out_tds_after: Output TDS
+        notes: Notes
+        status: Status
       ticket:
         datetime: Date and time
         notes: Notes
-        ticketable_type:
-          service: Service
-          installation: Installation
-
+  
   ransack:
     asc: ascending
     desc: descending
@@ -115,15 +120,17 @@ en:
   installations:
     new:
       title: Add installation
+      header: Add installation
     edit:
       title: Edit installation
+      header: Edit installation
     add_installation:
       buttons:
         add_installation: Add installation
     form:
       status_check: Completed
       buttons:
-        add: Add installation
+        add: Save
     installations_details:
       date: Date
       in_pressure: Input pressure
@@ -149,16 +156,18 @@ en:
   
   services:
     new:
-      title:
+      title: Add new service
+      header: Add new service
     edit:
-      title:
+      title: Edit service details
+      header: Edit service details 
     add_service:
       buttons:
         add_service: Add service
     form:
       status_check: Completed
       buttons:
-        add: Add service
+        add: Save
     services_history:
       date: Date
       replaced: Replaced parts
@@ -196,6 +205,9 @@ en:
       buttons:
        add: Add ticket
     ticket:
+      ticketable_type:
+        service: Service
+        installation: Installation
       datetime: 'Date and time:'
       client: 'Client:'
       address: 'Address:'

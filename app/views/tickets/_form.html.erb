@@ -2,17 +2,17 @@
   <%= form_with model: [@ticketable, @ticket], class: 'row my-3' do |f| %>
     <%= render 'shared/errors', object: @ticket %>
 
-    <div class="col-md-6">
+    <div class="col-md-6 mb-3">
       <%= f.label :datetime, class: 'form-label' %>
       <%= f.datetime_field :datetime, class: 'form-control form-control-lg' %>
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-12 mb-3">
       <%= f.label :notes, class: 'form-label' %>
       <%= f.text_area :notes, class: 'form-control form-control-lg' %>
     </div>
 
-    <div class="col-12 my-3">
+    <div class="col-12 my-3 mb-3">
       <%= f.submit t('.buttons.add_ticket'), class: 'btn btn-primary' %>
     </div>
 

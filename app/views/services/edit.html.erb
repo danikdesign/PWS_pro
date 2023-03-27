@@ -1,5 +1,5 @@
-<% provide :page_title, 'Service details' %>
-<% currently_at t 'menu.home' %>
+<% provide :page_title, t('.title') %>
+<% currently_at t 'menu.clients' %>
 
-<h1 class="mb-4">Service details</h1>
+<h1 class="mb-4"><%= t '.header' %></h1>
 <%= render 'form', purifier_parts: @purifier_parts %>
