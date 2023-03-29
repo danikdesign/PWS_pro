@@ -42,12 +42,12 @@
 
   <div class="col-md-2 mb-3">
     <div class="row">
-      <span>Pump</span>
+      <span><%= t '.pump' %></span>
     </div>
 
-    <div class="form-check form-switch style mb-3">
+    <div class="form-switch">
       <%= f.label :purifier_pump, class: 'form-check-label' do %>
-        <%= f.check_box :purifier_pump, class: 'form-check-input', style: 'mt-4' %>
+        <%= f.check_box :purifier_pump, class: 'form-check-input', style: 'height:2.7em; width:5em; margin-top:0.65em' %>
       <% end %>
     </div>
   </div>

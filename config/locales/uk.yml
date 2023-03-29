@@ -123,6 +123,7 @@ uk:
       header: Редагування профілю клієнта
     form:
       tagline: Заповніть форму нижче
+      pump: Помпа
       buttons:
         add: Зберегти
     show:

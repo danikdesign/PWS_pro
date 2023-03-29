@@ -123,6 +123,7 @@ en:
       header: Edit client profile
     form:
       tagline: Complete the form below
+      pump: Pump
       buttons:
         add: Add client
     show:
