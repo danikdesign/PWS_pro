@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row"><%= service.date %></th>
+        <th scope="row"><%= service.formatted_date %></th>
         <td><%= render service.purifier_parts %></td>
         <% if service.status == true %>
           <th class="text-success">
@@ -24,9 +24,9 @@
           </th>
         <% end %>
         <td><%= service.notes %></td>
-        <td>
+        <td class="text-danger">
           <% if service.tickets.present? %>
-            <%= service.tickets.last.datetime %>
+            <%= service.tickets.last.formatted_datetime %>
           <% end %>
         </td>
       </tr>
