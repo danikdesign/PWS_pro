@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Installation, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validations' do
+    it { should validate_presence_of :date }
+    it { should validate_presence_of :pressure }
+    it { should validate_presence_of :in_tds }
+    it { should validate_presence_of :out_tds }
+  end
 end
