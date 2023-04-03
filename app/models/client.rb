@@ -4,7 +4,7 @@ class Client < ApplicationRecord
 
   validates :first_name, presence: true, length: { minimum: 2 }
   validates :last_name, presence: true, length: { minimum: 2 }
-  validates :address, presence: true, length: { minimum: 4 }
+  validates :address, presence: true, length: { minimum: 6 }
   validates :phone, presence: true, length: { minimum: 6 }
 
   def self.ransackable_attributes(auth_object = nil)
