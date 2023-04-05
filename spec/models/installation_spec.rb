@@ -7,4 +7,8 @@ RSpec.describe Installation, type: :model do
     it { should validate_presence_of :in_tds }
     it { should validate_presence_of :out_tds }
   end
+
+  describe 'associations' do
+    it { should belong_to :client } 
+  end
 end
