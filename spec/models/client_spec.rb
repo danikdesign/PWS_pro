@@ -18,5 +18,4 @@ RSpec.describe Client, type: :model do
     it { should have_many :services }
   end
 
-  
 end
