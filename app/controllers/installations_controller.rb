@@ -1,4 +1,5 @@
 class InstallationsController < ApplicationController
+  before_action :require_user!
   before_action :set_client!
   before_action :set_installation!, only: %i[edit update destroy]
   

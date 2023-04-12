@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TicketsController < ApplicationController
-
+  before_action :require_user!
   before_action :set_ticketable!, except: %i[index show]
   before_action :set_client, except: %i[index show]
 

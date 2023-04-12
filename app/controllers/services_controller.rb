@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ServicesController < ApplicationController
+  before_action :require_user!
   before_action :set_client!
   before_action :set_service!, only: %i[edit update destroy]
   before_action :fetch_parts, only: %i[new create edit update]
