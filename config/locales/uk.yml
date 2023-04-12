@@ -266,3 +266,15 @@ uk:
     new_client: Додати клієнта
     tickets: Тікети
     calendar: Календар
+
+  passwordless:
+    sessions:
+      create:
+        session_expired: 'Ваш сеанс закінчився, будь ласка, увійдіть знову'
+        email_sent_if_record_found: "Щоб увійти перейдіть за посиланням у листі"
+        token_claimed: "Це посилання вже було використано, спробуйте запросити його ще раз"
+      new:
+        submit: 'Далі'
+    mailer:
+      subject: "Ваше чарівне посилання ✨"
+      magic_link: "Ось ваше посилання %{link}"
