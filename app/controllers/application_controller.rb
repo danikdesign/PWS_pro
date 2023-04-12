@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
 
   def require_user!
     return if current_user
-    redirect_to users.sign_in_path, alert: "Please sign in to view this content"
+    redirect_to auth.sign_in_path, alert: "Please sign in to view this content"
   end
 end
