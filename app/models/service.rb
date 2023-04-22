@@ -14,4 +14,13 @@ class Service < ApplicationRecord
     ['date', 'client_id']
   end
 
+  def self.in_date_range(start_date, end_date)
+    where(date: start_date..end_date, status: false)
+  end
+
+  def self.in_a_week
+    today = Date.today
+    in_a_week = today + 7
+    where(date: today..in_a_week, status: false)
+  end
 end
