@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-  include Passwordless::ControllerHelpers 
+  include Passwordless::ControllerHelpers
   include Internationalization
-  
 
   helper_method :current_user
 
@@ -13,6 +14,7 @@ class ApplicationController < ActionController::Base
 
   def require_user!
     return if current_user
+
     redirect_to auth.sign_in_path, alert: t('passwordless.sessions.create.alert')
   end
 end

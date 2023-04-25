@@ -20,6 +20,4 @@ class ClientDecorator < ApplicationDecorator
       "#{purifier_brand} RO#{purifier_stages}"
     end
   end
-
 end
-

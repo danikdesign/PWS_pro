@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Installation < ApplicationRecord
   include Ticketable
   belongs_to :client
@@ -7,7 +9,7 @@ class Installation < ApplicationRecord
   validates :in_tds, presence: true
   validates :out_tds, presence: true
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["date"]
+  def self.ransackable_attributes(_auth_object = nil)
+    ['date']
   end
 end

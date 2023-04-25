@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require File.expand_path('../config/environment', __dir__)
 
 require 'telegram/bot'
@@ -11,31 +13,28 @@ chat_id = ENV['D_CHAT_ID']
 
 def week_services
   num = 0
-  services = 
+  services =
     if Service.in_a_week.present?
       Service.in_a_week.map do |service|
         num += 1
         client = Client.find(service.client_id)
         name = "#{client.first_name} #{client.last_name}"
-    
+
         "#{num}. Date: #{service.date}\n#{name}\n\n"
       end
     else
-      ["No service this week"]
+      ['No service this week']
     end
 
   services.join
 end
 
 Telegram::Bot::Client.run(token) do |bot|
-  
   scheduler.cron '0 12 * * 1 Europe/Kiev' do
-    bot.api.send_message(chat_id: chat_id, text: "#{week_services}")
+    bot.api.send_message(chat_id:, text: week_services.to_s)
   end
 
-  
   bot.listen do |message|
-
     if !User.exists?(telegram_id: message.from.id)
       bot.api.send_message(chat_id: message.chat.id, text: "Sorry, but I can't find you in the system :(")
     else
@@ -46,7 +45,7 @@ Telegram::Bot::Client.run(token) do |bot|
         end
       when Telegram::Bot::Types::Message
         kb = [[
-          Telegram::Bot::Types::InlineKeyboardButton.new(text: 'Show', callback_data: 'services'),
+          Telegram::Bot::Types::InlineKeyboardButton.new(text: 'Show', callback_data: 'services')
         ]]
         markup = Telegram::Bot::Types::InlineKeyboardMarkup.new(inline_keyboard: kb)
         bot.api.send_message(chat_id: message.chat.id, text: 'Services in a week', reply_markup: markup)

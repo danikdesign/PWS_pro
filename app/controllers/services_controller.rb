@@ -29,9 +29,8 @@ class ServicesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-   
-  def edit
-  end
+
+  def edit; end
 
   def update
     if @service.update service_update_params
@@ -46,7 +45,7 @@ class ServicesController < ApplicationController
             flash[:success] = t('.success')
             redirect_to client_path(@client)
           end
-  
+
           format.turbo_stream do
             @service = @service.decorate
             flash.now[:success] = t('.success')
@@ -57,8 +56,7 @@ class ServicesController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-  
-  
+
   private
 
   def service_create_params
@@ -88,12 +86,12 @@ class ServicesController < ApplicationController
     @client.decorate
   end
 
-  def set_service!  
+  def set_service!
     @service = @client.services.find params[:id]
     @service = @service.decorate
   end
 
-  def fetch_parts 
+  def fetch_parts
     @purifier_parts = PurifierPart.all
   end
 end

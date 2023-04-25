@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ServicePurifierPart, type: :model do
@@ -5,4 +7,4 @@ RSpec.describe ServicePurifierPart, type: :model do
     it { should belong_to :service }
     it { should belong_to :purifier_part }
   end
-end 
+end

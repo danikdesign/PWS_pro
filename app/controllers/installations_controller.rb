@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class InstallationsController < ApplicationController
   before_action :require_user!
   before_action :set_client!
   before_action :set_installation!, only: %i[edit update destroy]
-  
+
   def new
     @installation = @client.installations.build
   end
@@ -26,8 +28,7 @@ class InstallationsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @installation.update installation_update_params
@@ -43,8 +44,6 @@ class InstallationsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-
-
 
   private
 
@@ -71,7 +70,7 @@ class InstallationsController < ApplicationController
     @client.decorate
   end
 
-  def set_installation!  
+  def set_installation!
     @installation = @client.installations.find params[:id]
     @insallation = @installation.decorate
   end

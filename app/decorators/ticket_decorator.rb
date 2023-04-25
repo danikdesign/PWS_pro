@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TicketDecorator < ApplicationDecorator
   delegate_all
 
@@ -16,5 +18,4 @@ class TicketDecorator < ApplicationDecorator
       "#{ticketable.client.purifier_brand} RO#{ticketable.client.purifier_stages}"
     end
   end
-
 end

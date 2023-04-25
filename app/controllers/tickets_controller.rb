@@ -8,6 +8,7 @@ class TicketsController < ApplicationController
   def new
     @ticket = @ticketable.tickets.build
   end
+
   def create
     @ticket = @ticketable.tickets.build ticket_params
 
@@ -17,10 +18,6 @@ class TicketsController < ApplicationController
           flash[:success] = t('.success')
           redirect_to client_path(@client)
         end
-
-        #format.turbo_stream do
-        #  flash.now[:success] = "Ticket has been created"
-        #end
       end
     else
       render :new, status: :unprocessable_entity
@@ -37,8 +34,9 @@ class TicketsController < ApplicationController
   def ticket_params
     params.require(:ticket).permit(:datetime, :notes)
   end
+
   def set_ticketable!
-    klass = [Installation, Service].detect {|c| params["#{c.name.underscore}_id"]}
+    klass = [Installation, Service].detect { |c| params["#{c.name.underscore}_id"] }
 
     raise ActiveRecord::RecordNotFound if klass.blank?
 

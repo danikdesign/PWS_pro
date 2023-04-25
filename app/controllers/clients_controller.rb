@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class ClientsController < ApplicationController
   before_action :require_user!
   before_action :set_client!, only: %i[edit update destroy]
 
   def new
-    @client = Client.new  
+    @client = Client.new
   end
 
   def create
@@ -17,8 +19,7 @@ class ClientsController < ApplicationController
     end
   end
 
-  def edit 
-  end
+  def edit; end
 
   def update
     if @client.update client_params
@@ -50,7 +51,6 @@ class ClientsController < ApplicationController
     @client = @client.decorate
   end
 
-
   private
 
   def client_params
@@ -67,5 +67,4 @@ class ClientsController < ApplicationController
   def set_client!
     @client = Client.find params[:id]
   end
-
 end

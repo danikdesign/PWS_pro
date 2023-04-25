@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Client < ApplicationRecord
   has_many :installations, dependent: :destroy
   has_many :services, dependent: :destroy
@@ -7,16 +9,16 @@ class Client < ApplicationRecord
   validates :address, presence: true, length: { minimum: 6 }
   validates :phone, presence: true, length: { minimum: 6 }
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["id",
-     "first_name",
-     "address",
-     "phone",
-     "purifier_brand",
-     "created_at"]
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[id
+       first_name
+       address
+       phone
+       purifier_brand
+       created_at]
   end
 
-  def self.ransackable_associations(auth_object = nil)
-    ["installations", "services"]
+  def self.ransackable_associations(_auth_object = nil)
+    %w[installations services]
   end
 end

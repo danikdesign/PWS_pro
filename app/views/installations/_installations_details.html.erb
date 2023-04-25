@@ -26,7 +26,7 @@
               <th class="text-danger">
                 <%= t '.not_completed' %>
                 <% if installation.tickets.present? %>
-                  <%= t '.ticked_created' %>
+                  <%= t '.ticket_created' %>
                 <% else %>
                   <%= link_to t('.buttons.add_ticket'), new_installation_ticket_path(installation), class: 'btn btn-danger' %>
                 <% end %>

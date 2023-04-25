@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Service < ApplicationRecord
   include Ticketable
   belongs_to :client
@@ -10,8 +12,8 @@ class Service < ApplicationRecord
   validates :out_tds_before, presence: true
   validates :out_tds_after, presence: true
 
-  def self.ransackable_attributes(auth_object = nil)
-    ['date', 'client_id']
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[date client_id]
   end
 
   def self.in_date_range(start_date, end_date)
