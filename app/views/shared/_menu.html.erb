@@ -1,14 +1,36 @@
 <%= provide :main_menu do %>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">PWS</a>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li><%= nav_tab t('menu.home'), root_path, { class: 'nav-link', current_page: current_page } %></li>
-          <li><%= nav_tab t('menu.clients'), clients_path, { class: 'nav-link', current_page: current_page } %></li>
-          <li><%= nav_tab t('menu.new_client'), new_client_path, { class: 'nav-link', current_page: current_page } %></li>
-          <li><%= nav_tab t('menu.tickets'), tickets_path, { class: 'nav-link', current_page: current_page } %></li>
-          <li><%= nav_tab t('menu.calendar'), services_calendar_path, { class: 'nav-link', current_page: current_page } %></li>
-        </ul>
+      <%= link_to 'PWS', root_path, class: 'navbar-brand'%>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li><%= nav_tab t('menu.home'), root_path, { class: 'nav-link', current_page: current_page } %></li>
+        <li><%= nav_tab t('menu.clients'), clients_path, { class: 'nav-link', current_page: current_page } %></li>
+        <li><%= nav_tab t('menu.new_client'), new_client_path, { class: 'nav-link', current_page: current_page } %></li>
+        <li><%= nav_tab t('menu.tickets'), tickets_path, { class: 'nav-link', current_page: current_page } %></li>
+        <li><%= nav_tab t('menu.calendar'), services_calendar_path, { class: 'nav-link', current_page: current_page } %></li>
+      </ul>
+
+      <ul class="nav col-12 col-lg-auto mb-2  m-2">
+        <li class="dropdown">
+          <%= link_to '#', class: 'btn btn-outline-secondary btn-sm dropdown-toggle', 
+                          data: { "bs-toggle":"dropdown" } do %>
+            <i class="bi bi-translate"></i>
+            <%= t I18n.locale %>
+          <% end %>
+
+          <ul class="dropdown-menu">
+            <% I18n.available_locales.each do |locale| %>
+              <li>
+                <%= link_to t(locale), root_path(locale: locale), class: 'dropdown-item' %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav col-12 col-lg-auto mb-2  m-2">
+        <%= link_to 'Sign out', auth.sign_out_path, data: { turbo_method: :delete }, class: 'btn btn-outline-secondary btn-sm' %>
+      </ul>
     </div>
   </nav>
 <% end %>
