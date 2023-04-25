@@ -94,6 +94,8 @@ group :development do
   gem 'rubocop-rails', '~> 2.19', require: false
 
   gem 'rubocop-performance', '1.17', require: false
+
+  gem 'bullet'
 end
 
 group :test do
