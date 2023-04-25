@@ -25,7 +25,7 @@ class TicketsController < ApplicationController
   end
 
   def index
-    @tickets = Ticket.order datetime: :asc
+    @tickets = Ticket.includes(:ticketable).order datetime: :asc
     @tickets = @tickets.decorate
   end
 
