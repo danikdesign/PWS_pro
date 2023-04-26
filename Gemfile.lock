@@ -91,6 +91,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.0)
     crass (1.0.6)
     cssbundling-rails (1.1.2)
       railties (>= 6.0.0)
@@ -200,6 +201,7 @@ GEM
     passwordless (0.11.0)
       bcrypt (~> 3.1.11)
       rails (>= 5.1.4)
+    pg (1.5.2)
     propshaft (0.7.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -249,6 +251,8 @@ GEM
       activesupport (>= 6.1.5)
       i18n
     redis (4.8.1)
+    redis-client (0.14.1)
+      connection_pool
     regexp_parser (2.8.0)
     reline (0.3.3)
       io-console (~> 0.5)
@@ -302,10 +306,13 @@ GEM
       websocket (~> 1.0)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
+    sidekiq (7.0.9)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.11.0)
     simple_calendar (2.4.3)
       rails (>= 3.0)
-    sqlite3 (1.6.2)
-      mini_portile2 (~> 2.8.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     telegram-bot-ruby (1.0.0)
@@ -357,6 +364,7 @@ DEPENDENCIES
   jsbundling-rails
   letter_opener
   passwordless
+  pg (~> 1.5)
   propshaft
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
@@ -370,8 +378,8 @@ DEPENDENCIES
   rufus-scheduler
   selenium-webdriver
   shoulda-matchers (~> 5.0)
+  sidekiq (~> 7.0)
   simple_calendar
-  sqlite3 (~> 1.4)
   stimulus-rails
   telegram-bot-ruby (~> 1.0)
   turbo-rails
