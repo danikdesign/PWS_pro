@@ -104,6 +104,6 @@ group :test do
   gem 'webdrivers'
 end
 
-gem "pg", "~> 1.5.1"
+gem "pg", "~> 1.5"
 
 gem "sidekiq", "~> 7.0"
