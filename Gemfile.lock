@@ -145,6 +145,7 @@ GEM
       multipart-post (~> 2)
     faraday-net_http (3.0.2)
     ffaker (2.21.0)
+    foreman (0.87.2)
     fugit (1.8.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
@@ -360,6 +361,7 @@ DEPENDENCIES
   draper
   factory_bot_rails
   ffaker
+  foreman
   jbuilder
   jsbundling-rails
   letter_opener

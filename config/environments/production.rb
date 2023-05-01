@@ -7,6 +7,20 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
+  config.hosts << "pws.up.railway.app"
+
+  config.action_mailer.defaul_url_options = { host: 'pws.up.railway.app', protocol: 'https'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:         'smtp.gmail.com',
+  port:            587,
+  domain:          'rails-production-6b86.up.railway.app',
+  user_name:       Rails.application.credentials.dig(:gmail_smtp, :email),
+  password:        Rails.application.credentials.dig(:gmail_smtp, :password),
+  authentication:  'plain',
+  enable_starttls: true,
+  open_timeout:    5,
+  read_timeout:    5 }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
