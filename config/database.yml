@@ -30,7 +30,11 @@ default: &default
 
 development:
   <<: *default
-  database: development
+  adapter: postgresql
+  database: pws
+  pool: 5
+  username: macdanik
+  password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
 
 test:
   <<: *default
