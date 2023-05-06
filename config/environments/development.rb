@@ -17,7 +17,7 @@ Rails.application.configure do
   # config.action_mailer.default_url_options = { host: 'pws.up.railway.app' }
   # config.action_mailer.default_url_options = :letter_opener
 
-  config.action_mailer.default_url_options = { host: 'pws.up.railway.app' }
+  config.action_mailer.default_url_options = { host: 'pws.up.railway.app', protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
   address:         'smtp.gmail.com',
