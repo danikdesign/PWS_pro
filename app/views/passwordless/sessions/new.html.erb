@@ -1,6 +1,25 @@
-<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">  
+<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> 
+
+  
+
   <%= form_with model: @session, url: send(Passwordless.mounted_as).sign_in_path, 
                                 data: { turbo: 'false' }, class: 'row g-3' do |f| %>
+
+    <div class="col-auto dropdown-center">
+      <%= link_to '#', class: 'btn btn-outline-secondary btn-lg dropdown-toggle', 
+                      data: { "bs-toggle":"dropdown" } do %>
+        <i class="bi bi-translate"></i>
+      <% end %>
+
+      <ul class="dropdown-menu">
+        <% I18n.available_locales.each do |locale| %>
+          <li>
+            <%= link_to t(locale), root_path(locale: locale), class: 'dropdown-item' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
     <div class="col-auto">
       <% email_field_name = :"passwordless[#{@email_field}]" %>
     
