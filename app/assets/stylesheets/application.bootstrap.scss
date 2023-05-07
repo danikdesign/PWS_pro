@@ -3,6 +3,15 @@
 @import 'tom-select/dist/scss/tom-select.bootstrap5';
 
 
+.alert-alert {
+  --bs-alert-color: #842029;
+  --bs-alert-bg: #f8d7da;
+  --bs-alert-border-color: #f5c2c7;
+}
+.alert-alert .alert-link {
+  color: #6a1a21;
+}
+
 .simple-calendar {
     table {
       -webkit-border-horizontal-spacing: 0px;
