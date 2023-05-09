@@ -30,11 +30,13 @@ def week_services
 end
 
 Telegram::Bot::Client.run(token) do |bot|
+
   scheduler.cron '0 12 * * 1 Europe/Kiev' do
     bot.api.send_message(chat_id:, text: week_services.to_s)
   end
 
   bot.listen do |message|
+    
     if !User.exists?(telegram_id: message.from.id)
       bot.api.send_message(chat_id: message.chat.id, text: "Sorry, but I can't find you in the system :(")
     else
