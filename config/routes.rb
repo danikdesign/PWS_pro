@@ -1,8 +1,11 @@
 # frozen_string_literal: true
+require 'sidekiq/web'
+require 'admin_constraint'
 
 Rails.application.routes.draw do
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     passwordless_for :users, at: '/', as: :auth
+    mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
 
     resources :clients do
       resources :installations, only: %i[new create edit update]

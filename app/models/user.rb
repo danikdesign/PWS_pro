@@ -7,4 +7,8 @@ class User < ApplicationRecord
             format: { with: URI::MailTo::EMAIL_REGEXP }
 
   passwordless_with :email
+
+  def admin?
+    true
+  end
 end
