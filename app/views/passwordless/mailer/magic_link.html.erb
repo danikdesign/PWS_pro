@@ -1,0 +1,8 @@
+<h1><%= I18n.t('passwordless.mailer.header') %></h1>
+<br>
+<h2><%= I18n.t('passwordless.mailer.magic_link', link: @magic_link) %></h2>
+<br>
+<h4><%= I18n.t('passwordless.mailer.from_device') %></h4>
+<p><%= @session.user_agent %></p>
+<br>
+<h4><%= I18n.t('passwordless.mailer.not_you') %></h4>
