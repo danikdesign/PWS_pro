@@ -280,5 +280,8 @@ en:
       new:
         submit: 'Next'
     mailer:
+      header: Welcome back to PWS!
       subject: "Your magic link ✨"
       magic_link: "Here's your link: %{link}"
+      from_device: "You might have tried to log in from this device:"
+      not_you: If it wasn't you, just ignore this message 
