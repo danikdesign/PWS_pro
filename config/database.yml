@@ -42,8 +42,4 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['PGDATABASE'] %>
-  username: <%= ENV['PGUSER'] %>
-  password: <%= ENV['PGPASSWORD'] %>
-  host: <%= ENV['PGHOST'] %>
-  port: <%= ENV['PGPORT'] %>
+  url: <%= ENV['DATABASE_URL']
