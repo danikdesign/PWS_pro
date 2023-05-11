@@ -41,3 +41,4 @@
 
 /.env
 /config/credentials/production.key
+/config/master.key
