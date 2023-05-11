@@ -7,9 +7,9 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-  config.hosts << "pws.up.railway.app"
+  config.hosts << 'pws-7tkz.onrender.com'
 
-  config.action_mailer.default_url_options = { host: 'pws.up.railway.app', protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'pws-7tkz.onrender.com', protocol: 'https' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
