@@ -1,0 +1,6 @@
+BotReminder:
+  cron: "0 10 * * 2"
+  queue: scheduler
+BotWorker: 
+  cron: "0 0 * * *"
+  queue: scheduler
