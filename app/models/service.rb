@@ -25,4 +25,10 @@ class Service < ApplicationRecord
     in_a_week = today + 7
     where(date: today..in_a_week, status: false)
   end
+
+  def self.in_a_month 
+    today = Date.today
+    in_a_week = today + 30
+    where(date: today..in_a_week, status: false)
+  end
 end
