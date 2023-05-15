@@ -151,6 +151,9 @@ GEM
       raabro (~> 1.4)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.13.0)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
@@ -182,6 +185,7 @@ GEM
     mini_portile2 (2.8.2)
     minitest (5.18.0)
     msgpack (1.7.0)
+    multi_xml (0.6.0)
     multipart-post (2.3.0)
     net-imap (0.3.4)
       date
@@ -367,6 +371,7 @@ DEPENDENCIES
   factory_bot_rails
   ffaker
   foreman
+  httparty
   jbuilder
   jsbundling-rails
   letter_opener
@@ -382,7 +387,6 @@ DEPENDENCIES
   rubocop (~> 1.50)
   rubocop-performance (= 1.17)
   rubocop-rails (~> 2.19)
-  rufus-scheduler
   selenium-webdriver
   shoulda-matchers (~> 5.0)
   sidekiq (~> 7.0)
