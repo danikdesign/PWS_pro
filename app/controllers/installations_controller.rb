@@ -13,6 +13,9 @@ class InstallationsController < ApplicationController
     @installation = @client.installations.build installation_create_params
 
     if @installation.save
+      if @installation.status
+        ServiceCreator.new(@installation.client).call(@installation.date)
+      end
       respond_to do |format|
         format.html do
           flash[:success] = t('.success')
