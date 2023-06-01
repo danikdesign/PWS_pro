@@ -31,4 +31,9 @@ class Service < ApplicationRecord
     in_a_week = today + 30
     where(date: today..in_a_week, status: false)
   end
+
+  def self.history(client)
+    client = client
+    Service.where("client_id = ? AND status = ?", client.id, true).order(date: :desc) 
+  end
 end
