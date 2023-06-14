@@ -1,65 +1,70 @@
-<div class="col-lg-3 mb-3">
-  <div class="card h-100">
-    <div class="card-header">
-      <h5 class="card-title text-center">
-        <% if ticket.ticketable_type == 'Service' %>
-          <%= t '.ticketable_type.service' %>
-        <% else %>
-          <%= t '.ticketable_type.installation' %>
-        <% end %>
-      </h5>
-      <h6 class="card-subtitle text-danger text-center">
-        <%= t '.datetime' %> <%= ticket.formatted_datetime %>
-      </h6>
-    </div>
-
-    <div class="card-body">
-
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <p class="card-text">
-            <%= t '.client' %> <strong><%= ticket.client_name %></strong>
-          </p>
-          <p class="card-text">
-            <%= t '.address' %> <strong><%= ticket.ticketable.client.address %></strong>
-          </p>
-          <p class="card-text">
-            <%= t '.phone' %> <strong><%= ticket.ticketable.client.phone %></strong>
-          </p>
-        </li>
-        <% if ticket.ticketable_type == "Installation" %>
-          <li class="list-group-item">
-            <p class="card-text text-center">
-            <%= t '.installation' %>
-            </p>
-          </li>
-          <li class="list-group-item">
-            <p class="card-text">
-              <strong><%= ticket.purifier %></strong>
-            </p>
-          </li>
-        <% else %>
-          <li class="list-group-item">
-            <p class="card-text text-center">
-            <%= t '.service' %>
-            </p>
-          </li>
-          <li class="list-group-item">
-            <p class="card-text">
-              <strong><%= render ticket.ticketable.purifier_parts %></strong>
-            </p>
-          </li>
-        <% end %>
-      </ul>
-
-        <div class="d-grid gap-2 col-6 mx-auto">
-          <%= link_to t('.buttons.close'), if ticket.ticketable_type == "Installation" 
-                                        edit_client_installation_path(ticket.ticketable.client, ticket.ticketable)
-                                      else 
-                                        edit_client_service_path(ticket.ticketable.client, ticket.ticketable)
-                                      end, class: 'btn btn-outline-danger' %>
+<% @tickets_by_date.each do |date, tickets| %>
+  <h5><%= l(date, format: '%A %d %B %Y') %></h5>
+  <% tickets.each do |ticket| %>
+    <div class="col-lg-3 mb-3">
+      <div class="card h-100">
+        <div class="card-header">
+          <h5 class="card-title text-center">
+            <% if ticket.ticketable_type == 'Service' %>
+              <%= t '.ticketable_type.service' %>
+            <% else %>
+              <%= t '.ticketable_type.installation' %>
+            <% end %>
+          </h5>
+          <h6 class="card-subtitle text-danger text-center">
+            <%= t '.datetime' %> <%= ticket.formatted_datetime %>
+          </h6>
         </div>
 
+        <div class="card-body d-flex flex-column">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <p class="card-text">
+                <%= t '.client' %> <strong><%= ticket.client_name %></strong>
+              </p>
+              <p class="card-text">
+                <%= t '.address' %> <strong><%= ticket.ticketable.client.address %></strong>
+              </p>
+              <p class="card-text">
+                <%= t '.phone' %> <strong><%= ticket.ticketable.client.phone %></strong>
+              </p>
+            </li>
+            <% if ticket.ticketable_type == "Installation" %>
+              <li class="list-group-item">
+                <p class="card-text text-center">
+                <%= t '.installation' %>
+                </p>
+              </li>
+              <li class="list-group-item">
+                <p class="card-text">
+                  <strong><%= ticket.purifier %></strong>
+                </p>
+              </li>
+            <% else %>
+              <li class="list-group-item">
+                <p class="card-text text-center">
+                <%= t '.service' %>
+                </p>
+              </li>
+              <li class="list-group-item">
+                <p class="card-text">
+                  <strong><%= render ticket.ticketable.purifier_parts %></strong>
+                </p>
+              </li>
+            <% end %>
+          </ul>
+            
+          <%= link_to t('.buttons.close'), 
+                if ticket.ticketable_type == "Installation" 
+                  edit_client_installation_path(ticket.ticketable.client, ticket.ticketable)
+                else 
+                  edit_client_service_path(ticket.ticketable.client, ticket.ticketable)
+                end, 
+                class: 'mt-auto btn btn-outline-danger' 
+          %>  
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  <% end %>
+  <hr />
+<% end %>

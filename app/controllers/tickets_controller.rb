@@ -15,7 +15,6 @@ class TicketsController < ApplicationController
     if @ticket.save
       respond_to do |format|
         format.html do
-          flash[:success] = t('.success')
           redirect_to client_path(@client)
         end
       end
@@ -27,6 +26,7 @@ class TicketsController < ApplicationController
   def index
     @tickets = Ticket.includes(:ticketable).order datetime: :asc
     @tickets = @tickets.decorate
+    @tickets_by_date = @tickets.group_by { |ticket| ticket.datetime.to_date }
   end
 
   private
