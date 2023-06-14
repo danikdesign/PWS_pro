@@ -8,8 +8,16 @@
 <%= link_to t('.buttons.delete'), client_path(@client), class: 'btn btn-danger mb-3', data: {
                         turbo_method: :delete,
                         turbo_confirm: t('.confirm')
-                      }, value: "Destroy" %>
+                      }, value: "Destroy" %>                      
 
-<%= render @client.decorate %>
+<div class="row mb-3">
+  <div class="col-sm-4 mb-3">
+    <%= render @client.decorate %>
+  </div>
 
-<%= render 'services_list' %>
+  <div class="col-sm-8">
+    <%= render 'installations/installation_details' %>
+  </div>
+</div>
+
+<%= render 'services/service_list' %>
