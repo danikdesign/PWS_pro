@@ -108,16 +108,7 @@ en:
       phone_number: 'Phone number:'
       address: 'Address:'
       no_info: No information
-      no_installation: No installation details available
       no_service: Service is not yet scheduled
-      installation_details: Installation details
-      purifier_specs: Purifier specifications
-    services_list:
-      no_service: No service performed or scheduled yet...
-      scheduled_service: Scheduled service
-      service_history: Service history
-      buttons:
-        ticket_added: Ticket added
     new:
       title: New client
       header: Add new client
@@ -156,7 +147,10 @@ en:
       status_check: Completed
       buttons:
         add: Save
-    installations_details:
+        cancel: Cancel
+    installation_details:
+      no_installation: No installation details available
+      installation_details: Installation details
       date: Date
       in_pressure: Input pressure
       in_tds: Input TDS
@@ -169,6 +163,7 @@ en:
       buttons:
         add_ticket: Add ticket
     purifier_specs:
+      purifier_specs: Purifier specifications
       brand: Brand
       number_of_stages: Number of stages
       pump: Pump
@@ -198,6 +193,13 @@ en:
       status_check: Completed
       buttons:
         add: Save
+        cancel: Cancel
+    services_list:
+      no_service: No service performed or scheduled yet...
+      scheduled_service: Scheduled service
+      service_history: Service history
+      buttons:
+        ticket_added: Ticket added
     services_history:
       date: Date
       replaced: Replaced parts
@@ -233,9 +235,11 @@ en:
     form:
       buttons:
         add_ticket: Add ticket
+        cancel: Cancel
     add_ticket:
       buttons:
-       add: Add ticket
+        add: Add ticket
+        ticket_added: Ticket added
     ticket:
       ticketable_type:
         service: Service

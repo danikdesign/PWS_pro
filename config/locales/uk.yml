@@ -1,6 +1,5 @@
 uk:
 
-
   en: Англійська
   uk: Українська
 
@@ -109,16 +108,7 @@ uk:
       phone_number: 'Номер телефону:'
       address: 'Адреса:'
       no_info: Немає інформації
-      no_installation: Немає інформації щодо встановлення
       no_service: Сервісне обслуговування наразі не заплановане
-      installation_details: Подробиці встановлення
-      purifier_specs: Характеристики системи
-    services_list:
-      no_service: Поки що немає виконаних чи запланованих обслуговувань...
-      scheduled_service: Найближче планове обслуговування
-      service_history: Історія обслуговувань
-      buttons:
-        ticket_added: Тікет створений
     new:
       title: Новий клієнт
       header: Додати нового клієнта
@@ -146,8 +136,10 @@ uk:
       from_ticket: Тікет успішно закритий
     new:
       title: Створити встановлення
+      header: Створити встановлення
     edit:
       title: Редагувати встановлення
+      header: Редагувати встановлення
     add_installation:
       buttons:
         add_installation: Створити встановлення
@@ -155,7 +147,10 @@ uk:
       status_check: Виконано
       buttons:
         add: Зберегти
-    installations_details:
+        cancel: Відмінити
+    installation_details:
+      no_installation: Немає інформації щодо встановлення
+      installation_details: Подробиці встановлення
       date: Дата
       in_pressure: Вхідний тиск
       in_tds: Вхідний TDS
@@ -168,6 +163,7 @@ uk:
       buttons:
         add_ticket: Додати тікет
     purifier_specs:
+      purifier_specs: Характеристики системи
       brand: Бренд
       number_of_stages: Кількість ступенів
       pump: Помпа
@@ -198,6 +194,13 @@ uk:
       status_check: Виконано
       buttons:
         add: Зберегти
+        cancel: Відмінити
+    services_list:
+      no_service: Поки що немає виконаних чи запланованих обслуговувань...
+      scheduled_service: Найближче планове обслуговування
+      service_history: Історія обслуговувань
+      buttons:
+        ticket_added: Тікет створений
     services_history:
       date: Дата
       replaced: Замінені елементи
@@ -233,9 +236,11 @@ uk:
     form:
       buttons:
         add_ticket: Додати тікет
+        cancel: Відмінити
     add_ticket:
       buttons:
         add: Додати тікет
+        ticket_added: Тікет створений
     ticket:
       ticketable_type:
         service: Обслуговування
@@ -244,7 +249,7 @@ uk:
       client: 'Клієнт:'
       address: 'Адреса:'
       phone: 'Номер телефону:'
-      installation: 'Система для втсановлення:'
+      installation: 'Система для встановлення:'
       service: 'Заміна наступних елементів:'
       buttons:
         close: Закрити тікет
