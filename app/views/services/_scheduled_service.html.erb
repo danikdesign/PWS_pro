@@ -1,4 +1,4 @@
-<%= turbo_frame_tag service do %> 
+<h4><%= t '.scheduled_service' %></h4>
 <div class="table-responsive">
   <table class="table">
     <thead class="table-light">
@@ -32,8 +32,9 @@
       </tr>
     </tbody>
   </table>
+  <%= link_to t('.buttons.edit'), 
+              edit_client_service_path(@client, service), 
+              class: 'btn btn-outline-danger btn-sm' %>
+  <%= render 'tickets/add_ticket', ticket_for: service %>
+  <hr /> 
 </div>
-<%= link_to t('.buttons.edit'), edit_client_service_path(@client, service), class: 'btn btn-outline-danger mb-3' %>
-<% end %>
-
-
