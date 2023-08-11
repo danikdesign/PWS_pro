@@ -2,17 +2,20 @@
 <% provide :page_title, t('.title') %>
 
 <%= link_to t('.buttons.back'), clients_path, class: 'btn btn-outline-secondary mb-3' %>
-<%= render 'installations/add_installation' %>
-<%= render 'services/add_service' %>
+<%= link_to t('.buttons.add_installation'),
+            new_client_installation_path(@client), 
+            class: 'btn btn-outline-primary mb-3',
+            data: { turbo_frame: 'new_installation' } %>
+<%= link_to t('.buttons.add_service'), new_client_service_path(@client), class: 'btn btn-outline-primary mb-3' %>
 <%= link_to t('.buttons.edit'), edit_client_path(@client), class: 'btn btn-outline-danger mb-3' %>
 <%= link_to t('.buttons.delete'), client_path(@client), class: 'btn btn-danger mb-3', data: {
                         turbo_method: :delete,
                         turbo_confirm: t('.confirm')
-                      }, value: "Destroy" %>                      
+                      }, value: "Destroy" %> 
 
 <div class="row mb-3">
   <div class="col-sm-4 mb-3">
-    <%= render @client.decorate %>
+      <%= render @client %>
   </div>
 
   <div class="col-sm-8">

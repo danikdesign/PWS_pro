@@ -1,47 +1,45 @@
-<%= turbo_frame_tag 'installation_details' do %>
-  <div class="card mb-3">
-    <div class="card-body">
-      <% if @client.installations.present? %>
-        <h4><%= t '.installation_details' %></h4>  
-        <div class="table-responsive">
-          <table class="table">
-            <thead class="table-light">
-            <tr>
-              <th scope="col"><%= t '.date' %></th>
-              <th scope="col"><%= t '.in_pressure' %></th>
-              <th scope="col"><%= t '.in_tds' %></th>
-              <th scope="col"><%= t '.out_tds' %></th>
-              <th scope="col"><%= t '.status' %></th>
-              <th scope="col"><%= t '.notes' %></th>
-            </tr>
-            </thead>
-            <tbody>
-              <% @client.installations.each do |installation| %>
-                <tr>
-                  <th scope="row"><%= installation.formatted_date %></th>
-                  <td><%= installation.pressure %></td>
-                  <td><%= installation.in_tds %></td>
-                  <td><%= installation.out_tds %></td>
-                  <% if installation.status == true %>
-                    <th class="text-success">
-                      <%= t '.completed' %>
-                    </th>
-                  <% else %>
-                    <th class="text-danger">
-                      <%= t '.not_completed' %>
-                      <%= render 'tickets/add_ticket', ticket_for: installation %>
-                    </th>
-                  <% end %>
-                  <td><%= installation.notes %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      <%= render 'installations/purifier_specs', client: @client %>
-      <% else %>
-        <h5 class="text-muted mb-0"><%= t '.no_installation' %></h5>
-      <% end %>
-    </div>
+<div class="card mb-3">
+  <div class="card-body">
+    <% if @client.installations.present? %>
+      <h4><%= t '.installation_details' %></h4>  
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="table-light">
+          <tr>
+            <th scope="col"><%= t '.date' %></th>
+            <th scope="col"><%= t '.in_pressure' %></th>
+            <th scope="col"><%= t '.in_tds' %></th>
+            <th scope="col"><%= t '.out_tds' %></th>
+            <th scope="col"><%= t '.status' %></th>
+            <th scope="col"><%= t '.notes' %></th>
+          </tr>
+          </thead>
+          <tbody>
+            <% @client.installations.each do |installation| %>
+              <tr>
+                <th scope="row"><%= installation.formatted_date %></th>
+                <td><%= installation.pressure %></td>
+                <td><%= installation.in_tds %></td>
+                <td><%= installation.out_tds %></td>
+                <% if installation.status == true %>
+                  <th class="text-success">
+                    <%= t '.completed' %>
+                  </th>
+                <% else %>
+                  <th class="text-danger">
+                    <%= t '.not_completed' %>
+                    <%= render 'tickets/add_ticket', ticket_for: installation %>
+                  </th>
+                <% end %>
+                <td><%= installation.notes %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <%= render 'installations/purifier_specs', client: @client %>
+    <% else %>
+      <h5 class="text-muted mb-0"><%= t '.no_installation' %></h5>
+    <% end %>
   </div>
-<% end %>
+</div>

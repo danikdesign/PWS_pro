@@ -1,15 +1,13 @@
-<%= turbo_frame_tag 'new_ticket' do %>
-  <% if ticket_for.tickets.present? %>
-    <a class="btn btn-danger btn-sm disabled" role="button" aria-disabled="true">
-      <%= t '.buttons.ticket_added' %>
-    </a>
-  <% else %>
-    <%= link_to t('.buttons.add'), 
-                if ticket_for.class.name == 'InstallationDecorator'
-                  new_installation_ticket_path(ticket_for)
-                else
-                  new_service_ticket_path(ticket_for)
-                end,
-                class: 'btn btn-danger btn-sm' %>
-  <% end%>
-<% end %>
+<% if ticket_for.tickets.present? %>
+  <a class="btn btn-danger btn-sm disabled" role="button" aria-disabled="true">
+    <%= t '.buttons.ticket_added' %>
+  </a>
+<% else %>
+  <%= link_to t('.buttons.add'), 
+              if ticket_for.class.name == 'InstallationDecorator'
+                new_installation_ticket_path(ticket_for)
+              else
+                new_service_ticket_path(ticket_for)
+              end,
+              class: 'btn btn-danger btn-sm' %>
+<% end%>

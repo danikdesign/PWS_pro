@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq', constraints: AdminConstraint.new
 
     resources :clients do
-      resources :installations, only: %i[new create edit update]
+      resources :installations, only: %i[new create edit update update_from_ticket]
       resources :services, only: %i[new create edit update]
     end
 
@@ -16,7 +16,11 @@ Rails.application.routes.draw do
       resources :tickets, only: %i[new create edit update destroy]
     end
 
-    resources :installations, only: %i[new create edit update] do
+    resources :installations, only: %i[new create edit update update_from_ticket] do
+      member do
+        patch :update
+        patch :update_from_ticket
+      end
       resources :tickets, only: %i[new create edit update destroy]
     end
 

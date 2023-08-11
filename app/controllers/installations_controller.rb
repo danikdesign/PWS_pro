@@ -3,7 +3,7 @@
 class InstallationsController < ApplicationController
   before_action :require_user!
   before_action :set_client!
-  before_action :set_installation!, only: %i[edit update destroy]
+  before_action :set_installation!, only: %i[edit update update_from_ticket destroy]
 
   def new
     @installation = @client.installations.build
@@ -16,16 +16,8 @@ class InstallationsController < ApplicationController
       if @installation.status
         ServiceCreator.new(@installation.client).call(@installation.date)
       end
-      respond_to do |format|
-        format.html do
-          flash[:success] = t('.success')
-          redirect_to client_path(@client)
-        end
-
-        format.turbo_stream do
-          flash.now[:success] = t('.success')
-        end
-      end
+      flash[:success] = t('.success')
+      redirect_to client_path(@client)
     else
       render :new, status: :unprocessable_entity
     end
@@ -37,7 +29,7 @@ class InstallationsController < ApplicationController
     if @installation.update installation_update_params
       if @installation.status
         ServiceCreator.new(@installation.client).call(@installation.date)
-        @installation.tickets.last.destroy
+        @installation.tickets.last.destroy if @installation.tickets.last.present?
         redirect_to tickets_path
         flash[:success] = t('.from_ticket')
       else
@@ -47,6 +39,22 @@ class InstallationsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
+
+  # todo
+  # def update_from_ticket
+  #   if @installation.update installation_update_params
+  #     if @installation.status
+  #       ServiceCreator.new(@installation.client).call(@installation.date)
+  #       @installation.tickets.last.destroy
+  #       redirect_to tickets_path
+  #       flash[:success] = t('.from_ticket')
+  #     else
+  #       redirect_to client_path(@client)
+  #     end
+  #   else
+  #     render :edit, status: :unprocessable_entity
+  #   end
+  # end
 
   private
 

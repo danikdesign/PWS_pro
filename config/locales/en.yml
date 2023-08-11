@@ -124,6 +124,8 @@ en:
       title: Client profile
       buttons:
         back: Back
+        add_installation: Add installation
+        add_service: Add service
         edit: Edit profile
         delete: Delete client
       confirm: 'Do you want to delete the client?'
@@ -140,9 +142,6 @@ en:
     edit:
       title: Edit installation
       header: Edit installation
-    add_installation:
-      buttons:
-        add_installation: Add installation
     form:
       status_check: Completed
       buttons:
@@ -186,21 +185,19 @@ en:
     edit:
       title: Edit service details
       header: Edit service details 
-    add_service:
-      buttons:
-        add_service: Add service
     form:
+      purifier_part_ids: Elements for replace
       status_check: Completed
       buttons:
         add: Save
         cancel: Cancel
-    services_list:
+    service_list:
       no_service: No service performed or scheduled yet...
       scheduled_service: Scheduled service
       service_history: Service history
       buttons:
         ticket_added: Ticket added
-    services_history:
+    service_history:
       date: Date
       replaced: Replaced parts
       in_pressure: Input pressure
@@ -221,7 +218,6 @@ en:
       not_completed: Not completed
       buttons:
         edit: Edit
-
 
   tickets:
     create: 
@@ -273,6 +269,7 @@ en:
     new_client: New client
     tickets: Tickets
     calendar: Calendar
+    sign_out: Sign out
 
   passwordless:
     sessions:

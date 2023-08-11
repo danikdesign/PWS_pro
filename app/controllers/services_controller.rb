@@ -36,21 +36,10 @@ class ServicesController < ApplicationController
     if @service.update service_update_params
       if @service.status
         ServiceCreator.new(@service.client).call(@service.date)
-        @service.tickets.last.destroy
-        redirect_to tickets_path
-        flash[:success] = t('.from_ticket')
+        @service.tickets.last.destroy if @service.tickets.last.present?
+        redirect_to client_path(@client)
       else
-        respond_to do |format|
-          format.html do
-            flash[:success] = t('.success')
-            redirect_to client_path(@client)
-          end
-
-          format.turbo_stream do
-            @service = @service.decorate
-            flash.now[:success] = t('.success')
-          end
-        end
+        redirect_to client_path(@client)
       end
     else
       render :edit, status: :unprocessable_entity

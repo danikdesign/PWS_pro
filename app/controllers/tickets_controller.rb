@@ -11,13 +11,8 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = @ticketable.tickets.build ticket_params
-
     if @ticket.save
-      respond_to do |format|
-        format.html do
-          redirect_to client_path(@client)
-        end
-      end
+      redirect_to client_path(@client)
     else
       render :new, status: :unprocessable_entity
     end

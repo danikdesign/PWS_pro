@@ -124,6 +124,8 @@ uk:
       title: Профіль клієнта
       buttons:
         back: Назад
+        add_installation: Створити встановлення
+        add_service: Створити обслуговування
         edit: Редагувати профіль
         delete: Видалити клієнта
       confirm: 'Ви дійсно хочете видалити цього клієнта з бази?'
@@ -140,9 +142,6 @@ uk:
     edit:
       title: Редагувати встановлення
       header: Редагувати встановлення
-    add_installation:
-      buttons:
-        add_installation: Створити встановлення
     form:
       status_check: Виконано
       buttons:
@@ -186,22 +185,19 @@ uk:
     edit:
       title: Деталі обслуговування
       header: Деталі обслуговування
-    add_service:
-      buttons:
-        add_service: Створити обслуговування
     form:
       purifier_part_ids: Елементи для заміни
       status_check: Виконано
       buttons:
         add: Зберегти
         cancel: Відмінити
-    services_list:
+    service_list:
       no_service: Поки що немає виконаних чи запланованих обслуговувань...
       scheduled_service: Найближче планове обслуговування
       service_history: Історія обслуговувань
       buttons:
         ticket_added: Тікет створений
-    services_history:
+    service_history:
       date: Дата
       replaced: Замінені елементи
       in_pressure: Вхідний тиск
@@ -222,7 +218,6 @@ uk:
       not_completed: Не виконано
       buttons:
         edit: Редагувати
-
 
   tickets:
     create: 
@@ -268,13 +263,13 @@ uk:
       badges:
         service: Обслуговування
 
-
   menu:
     home: Головна
     clients: Клієнти
     new_client: Додати клієнта
     tickets: Тікети
     calendar: Календар
+    sign_out: Вийти
 
   passwordless:
     sessions:

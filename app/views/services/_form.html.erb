@@ -1,53 +1,51 @@
-<%= turbo_frame_tag service do %>
-  <%= form_with model: [@client, service], class: 'row my-3' do |f| %>
-    <%= render 'shared/errors', object: service %>
+<%= form_with model: [@client, service], class: 'row my-3' do |f| %>
+  <%= render 'shared/errors', object: service %>
 
-    <div class="col-md-4 mb-3">
-      <%= f.label :date, class: 'form-label' %>
-      <%= f.date_field :date, class: 'form-control form-control-lg' %>
-    </div>
+  <div class="col-md-4 mb-3">
+    <%= f.label :date, class: 'form-label' %>
+    <%= f.date_field :date, class: 'form-control form-control-lg' %>
+  </div>
 
-    <div class="col-md-2 mb-3">
-      <%= f.label :pressure, class: 'form-label' %>
-      <%= f.text_field :pressure, class: 'form-control form-control-lg' %>
-    </div>
+  <div class="col-md-2 mb-3">
+    <%= f.label :pressure, class: 'form-label' %>
+    <%= f.text_field :pressure, class: 'form-control form-control-lg' %>
+  </div>
 
-    <div class="col-md-2 mb-3">
-      <%= f.label :in_tds, class: 'form-label' %>
-      <%= f.text_field :in_tds, class: 'form-control form-control-lg' %>
-    </div>
+  <div class="col-md-2 mb-3">
+    <%= f.label :in_tds, class: 'form-label' %>
+    <%= f.text_field :in_tds, class: 'form-control form-control-lg' %>
+  </div>
 
-    <div class="col-md-2 mb-3">
-      <%= f.label :out_tds_before, class: 'form-label' %>
-      <%= f.text_field :out_tds_before, class: 'form-control form-control-lg' %>
-    </div>
+  <div class="col-md-2 mb-3">
+    <%= f.label :out_tds_before, class: 'form-label' %>
+    <%= f.text_field :out_tds_before, class: 'form-control form-control-lg' %>
+  </div>
 
-    <div class="col-md-2 mb-3">
-      <%= f.label :out_tds_after, class: 'form-label' %>
-      <%= f.text_field :out_tds_after, class: 'form-control form-control-lg' %>
-    </div>
+  <div class="col-md-2 mb-3">
+    <%= f.label :out_tds_after, class: 'form-label' %>
+    <%= f.text_field :out_tds_after, class: 'form-control form-control-lg' %>
+  </div>
 
-    <div class="col-md-12 mb-3">
-      <%= f.label t('.purifier_part_ids'), class: 'form-label' %>
-      <%= f.select :purifier_part_ids, PurifierPart.all.pluck(:title, :id), {}, {multiple: true, data: {controller: 'ts--select'}, class: 'form-control form-control-lg'} %>
-    </div>
+  <div class="col-md-12 mb-3">
+    <%= f.label t('.purifier_part_ids'), class: 'form-label' %>
+    <%= f.select :purifier_part_ids, PurifierPart.all.pluck(:title, :id), {}, {multiple: true, data: {controller: 'ts--select'}, class: 'form-control form-control-lg'} %>
+  </div>
 
-    <div class="col-md-12 mb-3">
-      <%= f.label :notes, class: 'form-label' %>
-      <%= f.text_area :notes, class: 'form-control form-control-lg' %>
-    </div>
+  <div class="col-md-12 mb-3">
+    <%= f.label :notes, class: 'form-label' %>
+    <%= f.text_area :notes, class: 'form-control form-control-lg' %>
+  </div>
 
-    <div>
-      <%= f.label :status, class: 'form-check-label mb-3' do %>
-        <%= f.check_box :status, class: 'form-check-input' %>
-        <span><%= t '.status_check' %></span>
-      <% end %>
-    </div>
+  <div>
+    <%= f.label :status, class: 'form-check-label mb-3' do %>
+      <%= f.check_box :status, class: 'form-check-input' %>
+      <span><%= t '.status_check' %></span>
+    <% end %>
+  </div>
 
-    <div class="col-12 my-3 mb-3">
-      <%= f.submit t('.buttons.add'), class: 'btn btn-primary' %>
-      <%= link_to t('.buttons.cancel'), :back, class: 'btn btn-secondary' %>
-    </div>
+  <div class="col-12 my-3 mb-3">
+    <%= f.submit t('.buttons.add'), class: 'btn btn-primary' %>
+    <%= link_to t('.buttons.cancel'), :back, class: 'btn btn-secondary' %>
+  </div>
 
-  <% end %>
 <% end %>
