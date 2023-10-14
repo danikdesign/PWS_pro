@@ -70,7 +70,7 @@ class GreatTelegramBot
           client = Client.find(service.client_id)
           name = "#{client.first_name} #{client.last_name}"
     
-          "#{num}. Date: #{service.date}\n#{name}\n\n"
+          "#{num}. Дата: #{service.date}\n#{name}\n\n"
         end
       else
         ['Цього місяця немає обслуговувань']
