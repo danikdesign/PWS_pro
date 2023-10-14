@@ -26,11 +26,11 @@ class GreatTelegramBot
             end
           when Telegram::Bot::Types::Message
             kb = [[
-              Telegram::Bot::Types::InlineKeyboardButton.new(text: 'Services in a week', callback_data: '/week'),
-              Telegram::Bot::Types::InlineKeyboardButton.new(text: 'Services in a month', callback_data: '/month')
+              Telegram::Bot::Types::InlineKeyboardButton.new(text: 'Обслуговування на тиждень', callback_data: '/week'),
+              Telegram::Bot::Types::InlineKeyboardButton.new(text: 'Обслуговування на місяць', callback_data: '/month')
             ]]
             markup = Telegram::Bot::Types::InlineKeyboardMarkup.new(inline_keyboard: kb)
-            bot.api.send_message(chat_id: message.chat.id, text: "Hello #{message.from.first_name}!", reply_markup: markup)
+            bot.api.send_message(chat_id: message.chat.id, text: "Привіт #{message.from.first_name}!", reply_markup: markup)
           end
         end
       end
