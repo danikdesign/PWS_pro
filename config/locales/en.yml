@@ -193,7 +193,6 @@ en:
         cancel: Cancel
     service_list:
       no_service: No service performed or scheduled yet...
-      scheduled_service: Scheduled service
       service_history: Service history
       buttons:
         ticket_added: Ticket added
@@ -209,6 +208,7 @@ en:
       completed: Completed
       not_completed: Not completed
     scheduled_service:
+      scheduled: Scheduled service
       date: Date
       replacement: Parts for replace
       status: Status

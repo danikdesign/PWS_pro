@@ -14,7 +14,7 @@ class GreatTelegramBot
     Telegram::Bot::Client.run(@token) do |bot|
       bot.listen do |message|
         if !User.exists?(telegram_id: message.from.id)
-          bot.api.send_message(chat_id: message.chat.id, text: "Sorry, but I can't find you in the system :(")
+          bot.api.send_message(chat_id: message.chat.id, text: "Вибачте, але не можу знайти вас в системі :(")
         else
           case message
           when Telegram::Bot::Types::CallbackQuery

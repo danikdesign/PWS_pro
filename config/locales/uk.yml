@@ -193,7 +193,6 @@ uk:
         cancel: Відмінити
     service_list:
       no_service: Поки що немає виконаних чи запланованих обслуговувань...
-      scheduled_service: Найближче планове обслуговування
       service_history: Історія обслуговувань
       buttons:
         ticket_added: Тікет створений
@@ -209,6 +208,7 @@ uk:
       completed: Виконано
       not_completed: Не виконано
     scheduled_service:
+      scheduled: Найближче планове обслуговування
       date: Дата
       replacement: Елементи для заміни
       status: Статус
