@@ -7,7 +7,7 @@ brands = ["A.O.Smith", "Aquafilter", "Aqualine", "Atoll",
               "Ecosoft", "Filter-1", "Filtrons", "Kaplya",
               "Leader", "Leader Comfort", "OEM", "Purezzo", "Puricom",
               "Raifil", "Raifil GRANDO", "Zepter", "Аквафор",
-              "Гейзер", "Насосы+", "Новая Вода", "Эковода"]
+              "Гейзер", "Насосы+", "Новая Вода", "Эковода", "Purifier"]
 
 stages = (4..7).to_a
 
