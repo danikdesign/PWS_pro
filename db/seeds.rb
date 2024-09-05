@@ -2,52 +2,52 @@
 # SECTION 1
 # Adding purifier brands, number of stages, tanks capacity and parts titles in DataBase.
 
-brands = ["A.O.Smith", "Aquafilter", "Aqualine", "Atoll",
-              "BIO+ Systems", "Crystal", "DO.WATER", "DO.F",
-              "Ecosoft", "Filter-1", "Filtrons", "Kaplya",
-              "Leader", "Leader Comfort", "OEM", "Purezzo", "Puricom",
-              "Raifil", "Raifil GRANDO", "Zepter", "Аквафор",
-              "Гейзер", "Насосы+", "Новая Вода", "Эковода", "Purifier"]
+# brands = ["A.O.Smith", "Aquafilter", "Aqualine", "Atoll",
+#               "BIO+ Systems", "Crystal", "DO.WATER", "DO.F",
+#               "Ecosoft", "Filter-1", "Filtrons", "Kaplya",
+#               "Leader", "Leader Comfort", "OEM", "Purezzo", "Puricom",
+#               "Raifil", "Raifil GRANDO", "Zepter", "Аквафор",
+#               "Гейзер", "Насосы+", "Новая Вода", "Эковода", "Purifier"]
 
-stages = (4..7).to_a
+# stages = (4..7).to_a
 
-tanks = [6, 8, 10, 12, 15, 20, 50, 100, 200, 300, 500, 1000]
+# tanks = [6, 8, 10, 12, 15, 20, 50, 100, 200, 300, 500, 1000]
 
-parts = ['PP 5u Filter', 'Block Carbon Filter', 'PP 1u Filter', 'In-Line CL-10 Carbon Post Filter',
-          'In-Line Mineral Filter', 'In-Line Infra-Red Filter', 'Grain Carbon Filter', 'Deionization Post Filters',
-          'PP 20u Filter', 'PP 10u Filter',
-          'SLIM PP 20u Filter(20in)','SLIM PP 10u Filter(20in)','SLIM PP 5u Filter(20in)', 'SLIM Block Carbon Filter(20in)', 'SLIM PP 1u Filter(20in)', 'SLIM Grain Carbon Filter(20in)',
-          'Big Blue PP 20u Filter(10in)', 'Big Blue PP 10u Filter(10in)', 'Big Blue PP 5u Filter(10in)',
-          'Big Blue PP 1u Filter(10in)', 'Big Blue Block Carbon Filter(10in)', 'Big Blue Grain Carbon Filter(10in)',
-          'Big Blue PP 20u Filter(20in)', 'Big Blue PP 10u Filter(20in)', 'Big Blue PP 5u Filter(20in)',
-          'Big Blue PP 1u Filter(20in)', 'Big Blue Block Carbon Filter(20in)', 'Big Blue Grain Carbon Filter(20in)',
-          '50G RO Membrane', '75G RO Membrane', '80G RO Membrane', '100G RO Membrane',
-          '200G RO Membrane', '400GPD RO Membrane', '500GPD RO Membrane', '600GPD RO Membrane',
-          'Auto Shut-off Four Way Valve', 'Brass Ball Valve 1/4"', 'Big Single Clamp 2.5in', 'Small Single Clamp 2in',
-          'Double Clamp (For Membrane / In-line Filter)', 'Double Clamp / For Inline Filter', 'Flow Restrictor',
-          'High Pressure Switches', 'Low Pressure Switches', 'RO Diaphragm Booster Pump', 'RO PUMP DC transformer',
-          'RO PUMP HEAD & TRIANGLE DIAPHRAGM', 'Solenoid Valve']
+# parts = ['PP 5u Filter', 'Block Carbon Filter', 'PP 1u Filter', 'In-Line CL-10 Carbon Post Filter',
+#           'In-Line Mineral Filter', 'In-Line Infra-Red Filter', 'Grain Carbon Filter', 'Deionization Post Filters',
+#           'PP 20u Filter', 'PP 10u Filter',
+#           'SLIM PP 20u Filter(20in)','SLIM PP 10u Filter(20in)','SLIM PP 5u Filter(20in)', 'SLIM Block Carbon Filter(20in)', 'SLIM PP 1u Filter(20in)', 'SLIM Grain Carbon Filter(20in)',
+#           'Big Blue PP 20u Filter(10in)', 'Big Blue PP 10u Filter(10in)', 'Big Blue PP 5u Filter(10in)',
+#           'Big Blue PP 1u Filter(10in)', 'Big Blue Block Carbon Filter(10in)', 'Big Blue Grain Carbon Filter(10in)',
+#           'Big Blue PP 20u Filter(20in)', 'Big Blue PP 10u Filter(20in)', 'Big Blue PP 5u Filter(20in)',
+#           'Big Blue PP 1u Filter(20in)', 'Big Blue Block Carbon Filter(20in)', 'Big Blue Grain Carbon Filter(20in)',
+#           '50G RO Membrane', '75G RO Membrane', '80G RO Membrane', '100G RO Membrane',
+#           '200G RO Membrane', '400GPD RO Membrane', '500GPD RO Membrane', '600GPD RO Membrane',
+#           'Auto Shut-off Four Way Valve', 'Brass Ball Valve 1/4"', 'Big Single Clamp 2.5in', 'Small Single Clamp 2in',
+#           'Double Clamp (For Membrane / In-line Filter)', 'Double Clamp / For Inline Filter', 'Flow Restrictor',
+#           'High Pressure Switches', 'Low Pressure Switches', 'RO Diaphragm Booster Pump', 'RO PUMP DC transformer',
+#           'RO PUMP HEAD & TRIANGLE DIAPHRAGM', 'Solenoid Valve']
 
-########################################
+# ########################################
 
-# SECTION 2
-# Execution of this code is necessary for correct creation of customer models, installation and service. NEED TO BE UNCOMMENT FIRST CODE SECTION!
+# # SECTION 2
+# # Execution of this code is necessary for correct creation of customer models, installation and service. NEED TO BE UNCOMMENT FIRST CODE SECTION!
 
-brands.each do |brand|
-  PurifierBrand.create title: brand
-end
+# brands.each do |brand|
+#   PurifierBrand.create title: brand
+# end
 
-stages.each do |stage|
-  PurifierStage.create number: stage
-end
+# stages.each do |stage|
+#   PurifierStage.create number: stage
+# end
 
-parts.each do |part|
-  PurifierPart.create title: part
-end
+# parts.each do |part|
+#   PurifierPart.create title: part
+# end
 
-tanks.each do |tank|
-  PurifierTank.create capacity: tank
-end
+# tanks.each do |tank|
+#   PurifierTank.create capacity: tank
+# end
 
 # ########################################
 
