@@ -25,7 +25,7 @@ FROM base AS builder
 COPY . .
 
 # Устанавливаем JS-зависимости
-RUN yarn install --check-files
+RUN yarn install --frozen-lockfile
 
 # Сборка JS и CSS
 RUN yarn build && yarn build:css
