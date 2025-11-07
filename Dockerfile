@@ -1,5 +1,5 @@
 # ---------- Базовый слой ----------
-FROM ruby:3.2.3 AS base
+FROM ruby:3.2.0 AS base
 
 # Обновляем систему и устанавливаем зависимости для Rails, Node и Yarn
 RUN apt-get update -qq && \
