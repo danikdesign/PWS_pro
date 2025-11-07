@@ -1,60 +1,50 @@
-# ---------- БАЗОВЫЙ ОБРАЗ ----------
-FROM ruby:3.2.0-slim AS base
+# ---------- Базовый слой ----------
+FROM ruby:3.2.3 AS base
 
-# Переменные окружения
-ENV RAILS_ENV=production \
-    BUNDLE_DEPLOYMENT=true \
-    BUNDLE_PATH=/usr/local/bundle \
-    BUNDLE_WITHOUT="development test"
+# Обновляем систему и устанавливаем зависимости для Rails, Node и Yarn
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends \
+    build-essential libpq-dev nodejs npm git curl && \
+    rm -rf /var/lib/apt/lists/*
 
-# Устанавливаем системные зависимости
-RUN apt-get update -qq && apt-get install -y --no-install-recommends \
-    build-essential \
-    libpq-dev \
-    curl \
-    git \
-    nodejs \
-    npm \
-    && rm -rf /var/lib/apt/lists/*
-
-# Включаем corepack (современный способ установки Yarn)
-RUN corepack enable
+# Устанавливаем Yarn напрямую (надёжнее, чем corepack)
+RUN npm install -g yarn
 
 WORKDIR /app
 
-
-# ---------- УСТАНОВКА ЗАВИСИМОСТЕЙ ----------
+# ---------- Билдер ----------
 FROM base AS builder
 
-# Копируем Gemfile и package.json для кэширования зависимостей
+# Устанавливаем зависимости Ruby
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler -v "$(grep -A1 "BUNDLED WITH" Gemfile.lock | tail -n1 | tr -d ' ')" || gem install bundler
-RUN bundle install --jobs=4 --retry=3
+RUN gem install bundler && bundle install --jobs=4 --retry=3
 
+# Устанавливаем JS зависимости
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-# Копируем весь проект
+# Копируем весь код приложения
 COPY . .
 
-# Сборка ассетов
-RUN yarn build && yarn build:css
+# Предкомпиляция ассетов (если используется sprockets / webpacker / jsbundling)
+RUN bundle exec rails assets:precompile
 
-# Прекомпилируем ассеты (Propshaft/JS/CSS)
-RUN bundle exec rake assets:precompile
-
-
-# ---------- ФИНАЛЬНЫЙ ОБРАЗ ----------
-FROM base
+# ---------- Финальный слой ----------
+FROM base AS final
 
 WORKDIR /app
 
-# Копируем зависимости из builder
-COPY --from=builder /usr/local/bundle /usr/local/bundle
+# Копируем только необходимые файлы из билда
 COPY --from=builder /app /app
 
-# Открываем порт
+# Устанавливаем переменные окружения
+ENV RAILS_ENV=production
+ENV RACK_ENV=production
+ENV RAILS_LOG_TO_STDOUT=true
+ENV RAILS_SERVE_STATIC_FILES=true
+
+# Порт, который слушает Rails
 EXPOSE 3000
 
-# Команда запуска приложения
-CMD rake db:migrate && bin/rails server -e production -b 0.0.0.0 -p ${PORT:-3000}
+# Команда по умолчанию
+CMD ["bash", "-c", "bundle exec rails db:migrate && bundle exec puma -C config/puma.rb"]
