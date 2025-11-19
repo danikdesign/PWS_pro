@@ -20,22 +20,27 @@ WORKDIR /app
 # ------------------------------
 FROM base AS builder
 
+# Install gems
 COPY Gemfile Gemfile.lock ./
-RUN bundle install --without development test --deployment
+RUN bundle config set deployment 'true' && \
+    bundle config set without 'development test' && \
+    bundle install --jobs=4
 
+# Install JS packages
 COPY package.json yarn.lock ./
-RUN yarn install --production
+RUN yarn install --frozen-lockfile
 
-# Copy the entire project
+# Copy full project
 COPY . .
 
 # Precompile assets
-RUN RAILS_ENV=production bundle exec rake assets:precompile
+ENV RAILS_ENV=production
+RUN bundle exec rake assets:precompile
 
 # ------------------------------
-# Final minimal runtime image
+# Final runtime image
 # ------------------------------
-FROM ruby:3.2.0
+FROM ruby:3.2-alpine AS final
 
 RUN apk add --no-cache \
   postgresql-client \
@@ -46,10 +51,15 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 
+# Copy Ruby gems
 COPY --from=builder /usr/local/bundle /usr/local/bundle
+
+# Copy application
 COPY --from=builder /app /app
 
 ENV RAILS_ENV=production
 ENV RACK_ENV=production
+
+EXPOSE 3000
 
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
