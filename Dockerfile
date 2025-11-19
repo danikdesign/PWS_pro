@@ -1,37 +1,63 @@
-# ---------- Базовый слой ----------
-FROM ruby:3.2.0 AS base
+# ------------------------------
+# Base image
+# ------------------------------
+FROM ruby:3.2-alpine AS base
 
-RUN apt-get update -qq && \
-    apt-get install -y --no-install-recommends \
-    curl gnupg build-essential libpq-dev postgresql-client git && \
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs && \
-    npm install -g yarn && \
-    rm -rf /var/lib/apt/lists/*
+# Install needed build dependencies
+RUN apk add --no-cache \
+  build-base \
+  linux-headers \
+  git \
+  postgresql-dev \
+  nodejs \
+  yarn \
+  tzdata \
+  imagemagick
 
 WORKDIR /app
 
+# ------------------------------
+# Install gems
+# ------------------------------
 FROM base AS builder
 
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler && bundle install --jobs=4 --retry=3
+RUN bundle install --without development test --deployment
 
+# ------------------------------
+# Install JS deps
+# ------------------------------
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+RUN yarn install --production
 
+# ------------------------------
+# Copy application code
+# ------------------------------
 COPY . .
 
-RUN bundle exec rails assets:precompile
+# Precompile assets
+RUN RAILS_ENV=production bundle exec rake assets:precompile
 
-FROM base AS final
+# ------------------------------
+# Final minimal image
+# ------------------------------
+FROM ruby:3.2-alpine
+
+RUN apk add --no-cache \
+  postgresql-client \
+  nodejs \
+  yarn \
+  tzdata \
+  imagemagick
+
 WORKDIR /app
+
+# Copy bundles and app
+COPY --from=builder /usr/local/bundle /usr/local/bundle
 COPY --from=builder /app /app
 
 ENV RAILS_ENV=production
 ENV RACK_ENV=production
-ENV RAILS_LOG_TO_STDOUT=true
-ENV RAILS_SERVE_STATIC_FILES=true
 
-EXPOSE 3000
-
-CMD ["bash", "-c", "bundle exec rails db:migrate && bundle exec puma -C config/puma.rb"]
+# The command Dokku will run
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
