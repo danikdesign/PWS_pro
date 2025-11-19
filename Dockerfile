@@ -1,7 +1,7 @@
 # ------------------------------
 # Base image
 # ------------------------------
-FROM ruby:3.2-alpine AS base
+FROM ruby:3.2.0
 
 # Install needed build dependencies
 RUN apk add --no-cache \
